@@ -1,7 +1,7 @@
 - hosts: localhost
-    tags:
-      - install
-      - core
+  tags:
+    - install
+    - core
   tasks:
-    - include: tasks/brew-setup.yml
-    - include: tasks/zsh-setup.yml
+  - include: tasks/brew-setup.yml
+  - include: tasks/zsh-setup.yml

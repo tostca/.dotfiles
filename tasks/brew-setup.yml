@@ -9,3 +9,47 @@
     line: '/opt/homebrew/bin'
   become: true
   become_user: root
+
+- name: 'add custom homebrew repos'
+  community.general.homebrew_tap:
+    name: [
+      adoptopenjdk/openjdk,
+      fishtown-analytics/dbt,
+      heroku/brew,
+      homebrew/cask-versions,
+      thoughtbot/formulae,
+      weaveworks/tap,
+    ]
+
+- name: Install core packages via brew casks
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+  ignore_errors: true
+    - docker
+    - iterm2
+    - ngrok
+    - slack
+
+- name: "Install homebrew packages"
+  community.general.homebrew:
+    name: [
+      'autoconf',
+      'automake',
+      'awscli',
+      'coreutils',
+      'curl',
+      'fzf',
+      'libtool',
+      'libxslt',
+      'libyaml',
+      'mas',
+      'openssl' ,
+      'redis',
+      'sqlite3',
+      'tmux',
+      'unzip',
+      'vim',
+      'zsh',
+    ]
+    state: present
+    update_homebrew: yes
