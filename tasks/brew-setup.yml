@@ -25,6 +25,7 @@
   community.general.homebrew_cask:
     name: "{{ item }}"
   ignore_errors: true
+  with-items:
     - docker
     - iterm2
     - ngrok
