@@ -3,5 +3,5 @@
     - install
     - core
   tasks:
-  - include: tasks/brew-setup.yml
-  - include: tasks/zsh-setup.yml
+  - include_tasks: tasks/brew-setup.yml
+  - include_tasks: tasks/zsh-setup.yml
