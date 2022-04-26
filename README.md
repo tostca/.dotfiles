@@ -4,9 +4,9 @@ All my current dot files for nvim, zsh, tmux with gnu stow.
 
 ## Prereqs
 
-Instlal `brew`
+Install `brew`
 
 Install `ansible`.
-Can be installd with `pip` coh `brew`.
+Can be installd with `pip` and `brew`.
 
 Run `ansible` install script.
