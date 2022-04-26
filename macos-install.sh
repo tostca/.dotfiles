@@ -1,3 +1,3 @@
 # chmod 755 ./macos-install.sh
 
-brew install ansible
+ansible-playbook -i "localhost," -c local local.yml --ask-become-pass

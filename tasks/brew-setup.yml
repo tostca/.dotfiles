@@ -51,6 +51,8 @@
       'unzip',
       'vim',
       'zsh',
+      'nvim',
+      'stow',
     ]
     state: present
     update_homebrew: yes
