@@ -107,7 +107,7 @@ nnoremap <C-k> :cprev<CR>
 nnoremap <leader>pa o<esc>P<CR>
 
 vnoremap <leader>y "+y
-nnoremap <leader>y "+y
+nnoremap <leadernvim-tree>y "+y
 vnoremap <leader>p "_dP
 nnoremap <leader>Y gg"+y
 
