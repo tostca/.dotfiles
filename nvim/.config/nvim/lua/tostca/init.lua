@@ -17,7 +17,7 @@ NnoremapGlobal("<leader>nc", "<cmd>:lua require(\"tree-navigation.telescope\").n
 Nnoremap = CreateNoremap("n", { noremap = true })
 Inoremap = CreateNoremap("i", { noremap = true })
 
---require("tostca.telescope")
+require("tostca.telescope")
 require("tostca.debugger")
 require("tostca.lsp")
 require("tostca.nvim-tree")
