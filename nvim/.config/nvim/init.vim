@@ -12,13 +12,13 @@ set wildignore+=**/android/*
 set wildignore+=**/ios/*
 set wildignore+=**/.git/*
 
-set scrolloff=8
-set number
-set relativenumber
-set tabstop=4 softtabstop=4
-set shiftwidth=4
-set expandtab
-set smartindent
+" set scrolloff=8
+" set number
+" set relativenumber
+" set tabstop=2 softtabstop=2
+" set shiftwidth=2
+" set expandtab
+" set smartindent
 
 "call plug#begin(stdpath('data') . '/plugged')
 call plug#begin('~/.vim/plugged')
