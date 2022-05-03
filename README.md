@@ -10,3 +10,5 @@ Install `ansible`.
 Can be installd with `pip` and `brew`.
 
 Run `ansible` install script.
+
+install `brew install ripgrep`
