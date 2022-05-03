@@ -88,7 +88,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 call plug#end()
 
 lua require("tostca")
-lua require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
+" lua require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 
 set completeopt=menu,menuone,noselect 
 
