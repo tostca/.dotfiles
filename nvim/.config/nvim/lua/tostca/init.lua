@@ -23,13 +23,12 @@ require("tostca.lsp")
 require("tostca.nvim-tree")
 --require("tostca.nvim-treesitter-context")
 
---[[require("refactoring.config").setup({
+require("refactoring.config").setup({
 	formatting = {
 		typescript = {},
 		javascript = {},
 	},
 })
---]]
 
 P = function(v)
 	print(vim.inspect(v))

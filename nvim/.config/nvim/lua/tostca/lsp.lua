@@ -104,6 +104,7 @@ require("lspconfig").tsserver.setup(config())
 
 require("lspconfig").cssls.setup(config())
 require("lspconfig").tailwindcss.setup{}
+require'lspconfig'.graphql.setup{}
 
 local opts = {
 	-- whether to highlight the currently hovered symbol
