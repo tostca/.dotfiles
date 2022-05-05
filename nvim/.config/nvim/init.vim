@@ -12,14 +12,6 @@ set wildignore+=**/android/*
 set wildignore+=**/ios/*
 set wildignore+=**/.git/*
 
-" set scrolloff=8
-" set number
-" set relativenumber
-" set tabstop=2 softtabstop=2
-" set shiftwidth=2
-" set expandtab
-" set smartindent
-
 "call plug#begin(stdpath('data') . '/plugged')
 call plug#begin('~/.vim/plugged')
 
@@ -77,9 +69,6 @@ Plug 'tpope/vim-surround'
 " prettier
 Plug 'sbdchd/neoformat'
 
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
-Plug 'ayu-theme/ayu-vim'
 Plug 'dracula/vim', {'name': 'dracula'}
 
 " File explorer
@@ -88,12 +77,10 @@ Plug 'kyazdani42/nvim-tree.lua'
 call plug#end()
 
 lua require("tostca")
-" lua require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 
 set completeopt=menu,menuone,noselect 
 
 set termguicolors " enable true colors support
-"let ayucolor="dark"
 let g:dracula_colorterm = 0
 colorscheme dracula
 
