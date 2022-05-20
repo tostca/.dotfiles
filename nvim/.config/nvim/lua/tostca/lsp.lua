@@ -69,8 +69,12 @@ cmp.setup({
 		-- For ultisnips user.
 		-- { name = 'ultisnips' },
 
-		{ name = "buffer" },
+		{ name = "buffer", keywork_length = 5 },
 	},
+  experimental = {
+    native_menu = false,
+    ghost_text = true
+  }
 })
 
 -- local tabnine = require("cmp_tabnine.config")
