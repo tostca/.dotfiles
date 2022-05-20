@@ -22,6 +22,7 @@ require("tostca.debugger")
 require("tostca.lsp")
 require("tostca.nvim-tree")
 require("tostca.treesitter")
+require("tostca.lualine")
 --require("tostca.nvim-treesitter-context")
 
 require("refactoring.config").setup({
