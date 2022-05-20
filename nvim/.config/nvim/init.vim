@@ -74,6 +74,10 @@ Plug 'dracula/vim', {'name': 'dracula'}
 " File explorer
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
+
+" Status bar
+Plug 'hoob3rt/lualine.nvim'
+
 call plug#end()
 
 lua require("tostca")
