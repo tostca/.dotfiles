@@ -78,6 +78,9 @@ Plug 'kyazdani42/nvim-tree.lua'
 " Status bar
 Plug 'hoob3rt/lualine.nvim'
 
+" Get info on keybindings
+Plug 'folke/which-key.nvim'
+
 call plug#end()
 
 lua require("tostca")
