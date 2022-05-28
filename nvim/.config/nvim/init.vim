@@ -81,10 +81,12 @@ Plug 'hoob3rt/lualine.nvim'
 " Get info on keybindings
 Plug 'folke/which-key.nvim'
 
+Plug 'windwp/nvim-autopairs'
+
 call plug#end()
 
 lua require("tostca")
-
+lua require('nvim-autopairs').setup{}
 set completeopt=menu,menuone,noselect 
 
 set termguicolors " enable true colors support
