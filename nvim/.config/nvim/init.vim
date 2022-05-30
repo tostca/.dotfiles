@@ -82,11 +82,13 @@ Plug 'hoob3rt/lualine.nvim'
 Plug 'folke/which-key.nvim'
 
 Plug 'windwp/nvim-autopairs'
+Plug 'windwp/nvim-ts-autotag'
 
 call plug#end()
 
 lua require("tostca")
 lua require('nvim-autopairs').setup{}
+lua require('nvim-ts-autotag').setup()
 set completeopt=menu,menuone,noselect 
 
 set termguicolors " enable true colors support

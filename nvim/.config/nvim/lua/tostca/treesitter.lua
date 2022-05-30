@@ -1,5 +1,5 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { 'html', 'javascript', 'typescript', 'tsx', 'css', 'json', 'graphql' },
+  ensure_installed = { 'html', 'javascript', 'typescript', 'tsx', 'css', 'json', 'graphql', 'yaml' },
   -- ensure_installed = "all", -- or maintained
   highlight = {
     enable = true,
