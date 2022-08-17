@@ -17,4 +17,4 @@ dap.configurations.typescriptreact = { -- change to typescript if needed
     }
 }
 
-require('dap.ext.vscode').load_launchjs()
+-- require('dap.ext.vscode').load_launchjs()
