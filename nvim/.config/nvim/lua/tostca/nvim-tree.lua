@@ -2,7 +2,9 @@ require('nvim-tree').setup{
     view = {
         side = "right",
     },
-    icons = {
+    renderer = {
+      icons = {
         webdev_colors = true,
-    },
+      },
+    }
 }
