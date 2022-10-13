@@ -38,6 +38,9 @@ Plug 'romgrk/nvim-treesitter-context'
 "
 " Debugger Plugins
 Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'heHamsta/nvim-dap-virtual-text'
+Plug 'nvim-telescope/telescope-dap.nvim'
 " Author of below plugin is doing a rewrite
 " Plug 'Pocco81/DAPInstall.nvim'
 Plug 'szw/vim-maximizer'

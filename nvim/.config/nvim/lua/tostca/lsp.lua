@@ -175,6 +175,10 @@ cmp.setup({
     capabilities = capabilities
   })
 
+  require("lspconfig").intelephense.setup{
+    capabilities = capabilities,
+    on_attach = on_attach
+  }
   require("lspconfig").cssls.setup(config())
   require("lspconfig").tailwindcss.setup{}
   require'lspconfig'.graphql.setup{}
