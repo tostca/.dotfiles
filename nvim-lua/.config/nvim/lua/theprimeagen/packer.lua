@@ -2,7 +2,7 @@ return require("packer").startup(function()
     use("wbthomason/packer.nvim")
     use("sbdchd/neoformat")
 
-    -- Simple plugins can be specified as strings
+    -- Simple plugins can be specified as stringstwi
     use("TimUntersberger/neogit")
 
     -- TJ created lodash of neovim
@@ -27,13 +27,6 @@ return require("packer").startup(function()
     use("simrat39/symbols-outline.nvim")
     use("L3MON4D3/LuaSnip")
     use("saadparwaiz1/cmp_luasnip")
-
-    -- Testing out jupyter ascending
-    use('untitled-ai/jupyter_ascending.vim')
-    use('bfredl/nvim-ipy')
-    use('hkupty/iron.nvim')
-    use('GCBallesteros/jupytext.vim')
-    use('GCBallesteros/vim-textobj-hydrogen')
 
     -- Primeagen doesn"t create lodash
     use("ThePrimeagen/git-worktree.nvim")

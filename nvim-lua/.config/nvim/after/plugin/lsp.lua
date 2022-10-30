@@ -11,9 +11,8 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- Setup nvim-cmp.
 local cmp = require("cmp")
 local source_mapping = {
-	youtube = "[Suck it YT]",
-	buffer = "[Buffer]",
 	nvim_lsp = "[LSP]",
+	buffer = "[Buffer]",
 	nvim_lua = "[Lua]",
 	cmp_tabnine = "[TN]",
 	path = "[Path]",
@@ -73,7 +72,6 @@ cmp.setup({
 
 		{ name = "buffer" },
 
-		{ name = "youtube" },
 	},
 })
 
@@ -139,20 +137,6 @@ require("lspconfig").gopls.setup(config({
 			staticcheck = true,
 		},
 	},
-}))
-
--- who even uses this?
-require("lspconfig").rust_analyzer.setup(config({
-	cmd = { "rustup", "run", "nightly", "rust-analyzer" },
-	--[[
-    settings = {
-        rust = {
-            unstable_features = true,
-            build_on_save = false,
-            all_features = true,
-        },
-    }
-    --]]
 }))
 
 require("lspconfig").sumneko_lua.setup(config({

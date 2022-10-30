@@ -2,7 +2,6 @@ require("theprimeagen.set")
 require("theprimeagen.packer")
 require("theprimeagen.neogit")
 require("theprimeagen.debugger")
-require("theprimeagen.rtp")
 
 local augroup = vim.api.nvim_create_augroup
 ThePrimeagenGroup = augroup('ThePrimeagen', {})
