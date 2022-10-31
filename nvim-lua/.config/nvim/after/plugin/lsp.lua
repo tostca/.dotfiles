@@ -56,21 +56,21 @@ cmp.setup({
 
 	sources = {
 		-- tabnine completion? yayaya
+    { name = "nvim_lsp" },
+
+    -- For luasnip user.
+    { name = "luasnip" },
+
+    { name = "buffer" },
 
 		{ name = "cmp_tabnine" },
-
-		{ name = "nvim_lsp" },
 
 		-- For vsnip user.
 		-- { name = 'vsnip' },
 
-		-- For luasnip user.
-		{ name = "luasnip" },
-
 		-- For ultisnips user.
 		-- { name = 'ultisnips' },
 
-		{ name = "buffer" },
 
 	},
 })

@@ -4,6 +4,7 @@ return require("packer").startup(function()
 
     -- Simple plugins can be specified as stringstwi
     use("TimUntersberger/neogit")
+    use('danymat/neogen') 
 
     -- TJ created lodash of neovim
     use("nvim-lua/plenary.nvim")
@@ -14,6 +15,8 @@ return require("packer").startup(function()
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     })
+    use('kyazdani42/nvim-tree.lua')
+
 
     -- All the things
     use("neovim/nvim-lspconfig")
@@ -27,6 +30,10 @@ return require("packer").startup(function()
     use("simrat39/symbols-outline.nvim")
     use("L3MON4D3/LuaSnip")
     use("saadparwaiz1/cmp_luasnip")
+    use {
+      "windwp/nvim-autopairs",
+      config = function() require("nvim-autopairs").setup {} end
+    }
 
     -- Primeagen doesn"t create lodash
     use("ThePrimeagen/git-worktree.nvim")
