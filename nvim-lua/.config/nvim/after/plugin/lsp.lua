@@ -2,7 +2,7 @@ local Remap = require("theprimeagen.keymap")
 local nnoremap = Remap.nnoremap
 local inoremap = Remap.inoremap
 
-local sumneko_root_path = "/home/mpaulson/personal/sumneko"
+local sumneko_root_path = "/home/linuxbrew/.linuxbrew/Cellar/lua-language-server/3.6.3"
 local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
