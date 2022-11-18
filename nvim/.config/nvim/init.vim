@@ -27,6 +27,7 @@ Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 " Install LSP servers automatically 
 " Plug 'williamboman/nvim-lsp-installer'
 
+Plug 'danymat/neogen'
 " Code actions and symbols view
 Plug 'glepnir/lspsaga.nvim'
 Plug 'simrat39/symbols-outline.nvim'
@@ -39,7 +40,7 @@ Plug 'romgrk/nvim-treesitter-context'
 " Debugger Plugins
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
-Plug 'heHamsta/nvim-dap-virtual-text'
+Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'nvim-telescope/telescope-dap.nvim'
 " Author of below plugin is doing a rewrite
 " Plug 'Pocco81/DAPInstall.nvim'
