@@ -182,7 +182,7 @@ cmp.setup({
   require("lspconfig").html.setup{
     capabilities = capabilities,
     on_attach = on_attach,
-    filetypes = { 'html', 'heex', 'eex', 'elixir'},
+    filetypes = { 'html', 'heex', 'eex'},
   }
   require("lspconfig").emmet_ls.setup({
     capabilities = capabilities,
