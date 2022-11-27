@@ -4,7 +4,7 @@ return require("packer").startup(function()
 
     -- Simple plugins can be specified as stringstwi
     use("TimUntersberger/neogit")
-    use('danymat/neogen') 
+    use('danymat/neogen')
 
     -- TJ created lodash of neovim
     use("nvim-lua/plenary.nvim")
@@ -15,7 +15,12 @@ return require("packer").startup(function()
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     })
-    use('kyazdani42/nvim-tree.lua')
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional, for file icons
+        }
+    }
 
 
     -- All the things
