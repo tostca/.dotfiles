@@ -5,7 +5,7 @@ local inoremap = Remap.inoremap
 local sumneko_root_path = "/home/linuxbrew/.linuxbrew/Cellar/lua-language-server/3.6.3"
 local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Setup nvim-cmp.
@@ -33,10 +33,28 @@ cmp.setup({
 		end,
 	},
 	mapping = cmp.mapping.preset.insert({
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-		["<C-u>"] = cmp.mapping.scroll_docs(-4),
-		["<C-d>"] = cmp.mapping.scroll_docs(4),
-		["<C-Space>"] = cmp.mapping.complete(),
+        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        --['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-x>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.close(),
+        --['<CR>'] = cmp.mapping.confirm({ select = false }),
+        ['<C-y>'] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Insert,
+            select = true
+        }),
+        ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(function()
+            if cmp.visible() then
+                cmp.select_prev_item()
+            end
+        end, { "i", "s" }),
 	}),
 
 	formatting = {
@@ -86,7 +104,7 @@ tabnine:setup({
 
 local function config(_config)
 	return vim.tbl_deep_extend("force", {
-		capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+		capabilities,
 		on_attach = function()
 			nnoremap("gd", function() vim.lsp.buf.definition() end)
 			nnoremap("K", function() vim.lsp.buf.hover() end)
@@ -112,6 +130,81 @@ local function config(_config)
 		end,
 	}, _config or {})
 end
+
+local path_to_elixirls = vim.fn.expand("~/elixir-tools/elixir-ls/language_server.sh")
+require("lspconfig").elixirls.setup(config({
+    cmd = {path_to_elixirls},
+}))
+
+require("lspconfig").html.setup(config({
+    filetypes = { 'html', 'heex', 'eex'},
+}))
+
+require("lspconfig").emmet_ls.setup(config({
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'elixir', 'heex', 'eex' },
+}))
+
+require("lspconfig").tailwindcss.setup(config({
+    init_options = {
+        userLanguages = {
+            elixir = "phoenix-heex",
+            eruby = "erb",
+            heex = "phoenix-heex",
+            svelte = "html",
+        },
+    },
+    -- handlers = {
+        --   ["tailwindcss/getConfiguration"] = function(_, _, params, _, bufnr, _)
+            --     vim.lsp.buf_notify(bufnr, "tailwindcss/getConfigurationResponse", { _id = params._id })
+            --   end,
+            -- },
+            settings = {
+                includeLanguages = {
+                    typescript = "javascript",
+                    typescriptreact = "javascript",
+                    ["html-eex"] = "html",
+                    ["phoenix-heex"] = "html",
+                    heex = "html",
+                    eelixir = "html",
+                    elm = "html",
+                    erb = "html",
+                    svelte = "html",
+                },
+                tailwindCSS = {
+                    lint = {
+                        cssConflict = "warning",
+                        invalidApply = "error",
+                        invalidConfigPath = "error",
+                        invalidScreen = "error",
+                        invalidTailwindDirective = "error",
+                        invalidVariant = "error",
+                        recommendedVariantOrder = "warning",
+                    },
+                    experimental = {
+                        classRegex = {
+                            [[class= "([^"]*)]],
+                            [[class: "([^"]*)]],
+                            '~H""".*class="([^"]*)".*"""',
+                        },
+                    },
+                    validate = true,
+                },
+            },
+            filetypes = {
+                "css",
+                "scss",
+                "sass",
+                "html",
+                "heex",
+                "elixir",
+                "eruby",
+                "javascript",
+                "javascriptreact",
+                "typescript",
+                "typescriptreact",
+                "svelte",
+            },
+        }))
 
 require("lspconfig").zls.setup(config())
 
