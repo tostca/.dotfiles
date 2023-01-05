@@ -6,7 +6,13 @@ lsp.ensure_installed({
   'tsserver',
   'eslint',
   'sumneko_lua',
-  'rust_analyzer',
+  'elixirls',
+  'tailwindcss',
+  'intelephense',
+  'html',
+  'emmet-ls',
+  'cssls',
+  'graphql',
 })
 
 -- Fix Undefined global 'vim'
@@ -20,6 +26,16 @@ lsp.configure('sumneko_lua', {
     }
 })
 
+lsp.configure('elixirls', {
+  settings = {
+    elixirLS = {
+      filetypes = {"elixir", "eelixir"},
+      dialyzerEnabled = false,
+      fetchDeps = false,
+      enableTestLenses = true,
+    }
+  }
+})
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
