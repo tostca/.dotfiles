@@ -55,6 +55,7 @@ return require('packer').startup(function(use)
   -- Status line and file explorer.
   use({
       'nvim-lualine/lualine.nvim',
+      event = 'ColorScheme',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   })
   use {
