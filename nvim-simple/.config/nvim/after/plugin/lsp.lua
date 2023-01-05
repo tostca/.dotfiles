@@ -10,7 +10,7 @@ lsp.ensure_installed({
   'tailwindcss',
   'intelephense',
   'html',
-  'emmet-ls',
+  'emmet_ls',
   'cssls',
   'graphql',
 })
