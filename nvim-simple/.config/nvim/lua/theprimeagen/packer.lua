@@ -52,5 +52,17 @@ return require('packer').startup(function(use)
   use("folke/zen-mode.nvim")
   -- use("github/copilot.vim")
 
+  -- Status line and file explorer.
+  use({
+      'nvim-lualine/lualine.nvim',
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  })
+  use {
+      'nvim-tree/nvim-tree.lua',
+      requires = {
+          'nvim-tree/nvim-web-devicons', -- optional, for file icons
+      }
+  }
+
 end)
 
