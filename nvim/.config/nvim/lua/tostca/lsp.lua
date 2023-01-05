@@ -186,7 +186,7 @@ cmp.setup({
   }
   require("lspconfig").emmet_ls.setup({
     capabilities = capabilities,
-    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'elixir', 'heex', 'eex' },
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'heex', 'eex' },
   })
   require("lspconfig").cssls.setup(config())
   require("lspconfig").tailwindcss.setup({
