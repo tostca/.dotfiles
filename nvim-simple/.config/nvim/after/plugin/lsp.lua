@@ -17,19 +17,19 @@ lsp.ensure_installed({
 
 -- Fix Undefined global 'vim'
 lsp.configure('sumneko_lua', {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }
+      }
     }
+  }
 })
 
 lsp.configure('elixirls', {
   settings = {
     elixirLS = {
-      filetypes = {"elixir", "eelixir"},
+      filetypes = { "elixir", "eelixir" },
       dialyzerEnabled = false,
       fetchDeps = false,
       enableTestLenses = true,
@@ -37,8 +37,73 @@ lsp.configure('elixirls', {
   }
 })
 
+lsp.configure('html', {
+  filetypes = { 'html', 'heex', 'eex' },
+})
+
+lsp.configure('emmet_ls', {
+  filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'elixir', 'heex', 'eex' }
+})
+
+lsp.configure('tailwindcss', {
+  init_options = {
+    userLanguages = {
+      elixir = "phoenix-heex",
+      eruby = "erb",
+      heex = "phoenix-heex",
+      svelte = "html",
+    },
+  },
+  settings = {
+    includeLanguages = {
+      typescript = "javascript",
+      typescriptreact = "javascript",
+      ["html-eex"] = "html",
+      ["phoenix-heex"] = "html",
+      heex = "html",
+      eelixir = "html",
+      elm = "html",
+      erb = "html",
+      svelte = "html",
+    },
+    tailwindCSS = {
+      lint = {
+        cssConflict = "warning",
+        invalidApply = "error",
+        invalidConfigPath = "error",
+        invalidScreen = "error",
+        invalidTailwindDirective = "error",
+        invalidVariant = "error",
+        recommendedVariantOrder = "warning",
+      },
+      experimental = {
+        classRegex = {
+          [[class= "([^"]*)]],
+          [[class: "([^"]*)]],
+          '~H""".*class="([^"]*)".*"""',
+        },
+      },
+      validate = true,
+    },
+  },
+  filetypes = {
+    "css",
+    "scss",
+    "sass",
+    "html",
+    "heex",
+    "elixir",
+    "eruby",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "svelte",
+  },
+})
+
 local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
@@ -56,21 +121,21 @@ lsp.setup_nvim_cmp({
 })
 
 lsp.set_preferences({
-    suggest_lsp_servers = false,
-    sign_icons = {
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
-    }
+  suggest_lsp_servers = false,
+  sign_icons = {
+    error = 'E',
+    warn = 'W',
+    hint = 'H',
+    info = 'I'
+  }
 })
 
 lsp.on_attach(function(client, bufnr)
-  local opts = {buffer = bufnr, remap = false}
+  local opts = { buffer = bufnr, remap = false }
 
   if client.name == "eslint" then
-      vim.cmd.LspStop('eslint')
-      return
+    vim.cmd.LspStop('eslint')
+    return
   end
 
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
@@ -88,6 +153,5 @@ end)
 lsp.setup()
 
 vim.diagnostic.config({
-    virtual_text = true,
+  virtual_text = true,
 })
-
