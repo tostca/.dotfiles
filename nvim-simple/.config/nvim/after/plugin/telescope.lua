@@ -1,11 +1,12 @@
 -- See `:help telescope` and `:help telescope.setup()`
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<C-p>', builtin.git_files, {desc = 'Find Git files'})
+vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = 'Find Git files' })
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<leader>k?', require('telescope.builtin').keymaps, { desc = '[K]eymaps Finder ' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
