@@ -9,20 +9,20 @@ return {
         elixirls = {
           settings = {
             elixirLS = {
-              filetypes = { "elixir", "eelixir" },
+              filetypes = { "elixir", "eelixir", "heex", "eex", "surface" },
               dialyzerEnabled = false,
               fetchDeps = false,
               enableTestLenses = true,
-            }
-          }
+            },
+          },
         },
 
         html = {
-          filetypes = { 'html', 'heex', 'eex' },
+          filetypes = { "html", "heex", "eex" },
         },
 
         emmet_ls = {
-          filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'heex', 'eex' }
+          filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "heex", "eex" },
         },
 
         tailwindcss = {
@@ -80,7 +80,7 @@ return {
             "typescriptreact",
             "svelte",
           },
-        }
+        },
       },
     },
   },
