@@ -62,7 +62,7 @@ table.insert(entries, {
 
     opts.sources = vim.list_extend(opts.sources, {
       formatting.mix,
-      diagnostics.credo,
+      -- diagnostics.credo,
     })
   end,
 })
