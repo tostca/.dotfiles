@@ -23,6 +23,8 @@ return {
             "scss",
             "less",
             "heex",
+            -- "eex",
+            -- "elixir",
           },
         },
       },

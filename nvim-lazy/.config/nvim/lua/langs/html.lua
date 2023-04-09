@@ -28,6 +28,7 @@ return {
             "elixir",
           },
         },
+        css_lsp = {},
       },
     },
   },
