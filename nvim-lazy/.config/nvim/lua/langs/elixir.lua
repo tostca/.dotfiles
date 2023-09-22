@@ -1,3 +1,4 @@
+local lspconfig = require("lspconfig")
 local entries = {
   -- add elixir to treesitter
   {
@@ -22,27 +23,46 @@ local entries = {
   -- },
 
   -- add elixir to mason
-  {
-    "williamboman/mason.nvim",
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, { "elixir-ls" })
-    end,
-  },
+  -- {
+  --   "williamboman/mason.nvim",
+  --   opts = function(_, opts)
+  --     vim.list_extend(opts.ensure_installed, { "elixir-ls" })
+  --   end,
+  -- },
 
   -- correctly setup lspconfig
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = {
+  --     format = { timeout_ms = 1000 },
+  --     servers = {
+  --       elixirls = {
+  --         settings = {
+  --           elixirLS = {
+  --             filetypes = { "elixir", "eelixir", "heex", "eex", "surface" },
+  --             dialyzerEnabled = false,
+  --             fetchDeps = false,
+  --             enableTestLenses = true,
+  --           },
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
   {
     "neovim/nvim-lspconfig",
     opts = {
       format = { timeout_ms = 1000 },
       servers = {
-        elixirls = {
-          settings = {
-            elixirLS = {
-              filetypes = { "elixir", "eelixir", "heex", "eex", "surface" },
-              dialyzerEnabled = false,
-              fetchDeps = false,
-              enableTestLenses = true,
-            },
+        lexical = {
+          mason = false,
+          default_config = {
+            filetypes = { "elixir", "eelixir", "heex", "eex", "surface" },
+            cmd = { "/Users/tonystenberg/personal/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
+            settings = {},
+            root_dir = function(fname)
+              return lspconfig.util.root_pattern("mix.exs", ".git")(fname) or vim.loop.os_homedir()
+            end,
           },
         },
       },
