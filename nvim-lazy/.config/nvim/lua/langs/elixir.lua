@@ -1,5 +1,4 @@
-local lspconfig = require("lspconfig")
-local entries = {
+return {
   -- add elixir to treesitter
   {
     "nvim-treesitter/nvim-treesitter",
@@ -49,42 +48,40 @@ local entries = {
   --     },
   --   },
   -- },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      format = { timeout_ms = 1000 },
-      servers = {
-        lexical = {
-          mason = false,
-          default_config = {
-            filetypes = { "elixir", "eelixir", "heex", "eex", "surface" },
-            cmd = { "/Users/tonystenberg/personal/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
-            settings = {},
-            root_dir = function(fname)
-              return lspconfig.util.root_pattern("mix.exs", ".git")(fname) or vim.loop.os_homedir()
-            end,
-          },
-        },
-      },
-    },
-  },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = {
+  --     format = { timeout_ms = 1000 },
+  --     servers = {
+  --       lexical = {
+  --         mason = false,
+  --         default_config = {
+  --           filetypes = { "elixir", "eelixir", "heex", "eex", "surface" },
+  --           cmd = { "/Users/tonystenberg/personal/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
+  --           settings = {},
+  --           root_dir = function(fname)
+  --             return lspconfig.util.root_pattern("mix.exs", ".git")(fname) or vim.loop.os_homedir()
+  --           end,
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
 }
 
-table.insert(entries, {
-  "jose-elias-alvarez/null-ls.nvim",
-  opts = function(_, opts)
-    local null_ls = require("null-ls")
-
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-    local formatting = null_ls.builtins.formatting
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-    local diagnostics = null_ls.builtins.diagnostics
-
-    opts.sources = vim.list_extend(opts.sources, {
-      formatting.mix,
-      -- diagnostics.credo,
-    })
-  end,
-})
-
-return entries
+-- table.insert(entries, {
+--   "jose-elias-alvarez/null-ls.nvim",
+--   opts = function(_, opts)
+--     local null_ls = require("null-ls")
+--
+--     -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
+--     local formatting = null_ls.builtins.formatting
+--     -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
+--     local diagnostics = null_ls.builtins.diagnostics
+--
+--     opts.sources = vim.list_extend(opts.sources, {
+--       formatting.mix,
+--       -- diagnostics.credo,
+--     })
+--   end,
+-- })

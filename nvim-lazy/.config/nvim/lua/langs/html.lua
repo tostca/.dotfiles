@@ -28,7 +28,7 @@ return {
             "elixir",
           },
         },
-        css_lsp = {},
+        cssls = {},
       },
     },
   },
