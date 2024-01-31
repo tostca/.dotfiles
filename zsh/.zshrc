@@ -144,5 +144,8 @@ export PATH="$PATH:/Users/tonystenberg/.local/bin"
 export AWS_DEFAULT_SSO_START_URL=https://onceupon.awsapps.com/start
 export AWS_DEFAULT_SSO_REGION=eu-central-1
 
+# Elixir
+export ERL_AFLAGS="-kernel shell_history enabled"
+
 # Fig post block. Keep at the bottom of this file.
 . "$HOME/.fig/shell/zshrc.post.zsh"
