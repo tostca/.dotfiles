@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# This is taken from Mischa Vandenburg
+# https://github.com/mischavandenburg/dotfiles/blob/main/setup
+
+# Second Brain
+# This one's a little tricky because the path contains a space. It needs to be stored as an array,
+# and when called it needs to be quoted.
+export SECOND_BRAIN=("/Users/tonystenberg/Library/Mobile Documents/iCloud~md~obsidian/Documents/second-brain")
+ln -sf "$SECOND_BRAIN" ~/personal/second-brain
