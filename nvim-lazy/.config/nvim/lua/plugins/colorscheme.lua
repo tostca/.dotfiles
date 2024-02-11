@@ -1,8 +1,8 @@
 return {
-  {
-    "catppuccin/nvim",
-  },
-
+  { "catppuccin/nvim" },
+  { "ellisonleao/gruvbox.nvim" },
+  { "sainnhe/gruvbox-material" },
+  { "sainnhe/everforest" },
   {
     "LazyVim/LazyVim",
     opts = {
