@@ -118,3 +118,13 @@ end, { desc = "Delete all buffers but current" })
 vim.keymap.set("n", "<leader>ba", function()
   delete_all_buffers()()
 end, { desc = "Delete all buffers" })
+
+-- Obsidian
+vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<CR>", { desc = "Obsidian find notes by tag" })
+vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "Obsidian create new note in inbox" })
+vim.keymap.set("n", "<leader>od", "<cmd>ObsidianToday<CR>", { desc = "Obsidian create new daily zettlekasten" })
+
+-- Diffing
+vim.keymap.set("n", "<leader>cw", "<cmd>windo diffthis<CR>", { desc = "Start diff for open windows" })
+-- Could also use <cmd>windo diffoff<CR>
+vim.keymap.set("n", "<leader>cW", "<cmd>diffoff!<CR>", { desc = "Stop diff for open windows" })
