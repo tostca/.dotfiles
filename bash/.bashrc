@@ -259,6 +259,9 @@ alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}
 # search for a file with fzf and open it in vim
 alias vf='v $(fp)'
 
+# start virt-manager
+alias virt='virt-manager -c "qemu:///session" --no-fork'
+
 # sourcing
 # source "$HOME/.privaterc"
 
