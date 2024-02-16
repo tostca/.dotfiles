@@ -22,10 +22,21 @@ return {
         name = "second-brain",
         path = "/Users/tonystenberg/Library/Mobile Documents/iCloud~md~obsidian/Documents/second-brain",
       },
-      {
-        name = "work",
-        path = "~/vaults/work",
-      },
+      -- {
+      --   name = "work",
+      --   path = "~/vaults/work",
+      -- },
+    },
+    notes_subdir = "0-inbox",
+    daily_notes = {
+      -- Optional, if you keep daily notes in a separate directory.
+      folder = "00-zettlekasten",
+      -- Optional, if you want to change the date format for the ID of daily notes.
+      date_format = "%Y-%m-%d",
+      -- Optional, if you want to change the date format of the default alias of daily notes.
+      alias_format = "%B %-d, %Y",
+      -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+      template = nil,
     },
     completion = {
       -- Set to false to disable completion.
@@ -37,7 +48,7 @@ return {
       -- Where to put new notes created from completion. Valid options are
       --  * "current_dir" - put new notes in same directory as the current buffer.
       --  * "notes_subdir" - put new notes in the default notes subdirectory.
-      new_notes_location = "current_dir",
+      new_notes_location = "notes_subdir",
 
       -- Control how wiki links are completed with these (mutually exclusive) options:
       --
@@ -55,5 +66,42 @@ return {
       use_path_only = false,
     },
     -- see below for full list of options 👇
+    mappings = {
+      -- Obsidian follow link
+      ["<leader>of"] = {
+        action = function()
+          return require("obsidian").util.gf_passthrough()
+        end,
+        opts = { noremap = false, expr = true, buffer = true, desc = "Obsidian follow link" },
+      },
+      -- Toggle check-boxes "obsidian done
+      ["<leader>oc"] = {
+        action = function()
+          return require("obsidian").util.toggle_checkbox()
+        end,
+        opts = { buffer = true, desc = "Obsidian toggle checkbox done" },
+      },
+    },
+
+    note_frontmatter_func = function(note)
+      -- This is equivalent to the default frontmatter function.
+      local out = { id = note.id, aliases = note.aliases, tags = note.tags, area = "", project = "" }
+
+      -- `note.metadata` contains any manually added fields in the frontmatter.
+      -- So here we just make sure those fields are kept in the frontmatter.
+      if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+        for k, v in pairs(note.metadata) do
+          out[k] = v
+        end
+      end
+      return out
+    end,
+
+    templates = {
+      subdir = "templates",
+      date_format = "%Y-%m-%d-%a",
+      time_format = "%H:%M",
+      tags = "",
+    },
   },
 }
