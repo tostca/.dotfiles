@@ -286,14 +286,18 @@ alias virt='virt-manager -c "qemu:///session" --no-fork'
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+# ASDF version control
+. "$HOME/.asdf/asdf.sh"
 
-if command -v pyenv 1>/dev/null 2>&1; then
-	eval "$(pyenv init -)"
-fi
-alias pip=/usr/local/bin/pip3
-alias python=/usr/local/bin/python3
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+#
+# if command -v pyenv 1>/dev/null 2>&1; then
+# 	eval "$(pyenv init -)"
+# fi
+
+# alias pip=/usr/local/bin/pip3
+# alias python=$(which python3)
 
 # Created by `pipx` on 2021-11-29 13:02:51
 export PATH="$PATH:/Users/tonystenberg/.local/bin"
