@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Update all packages
-pacman -Syu--noconfirm
+pacman -Syu --noconfirm
 
 # Packages for development
 pacman -S --noconfirm git \
