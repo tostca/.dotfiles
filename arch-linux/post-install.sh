@@ -42,4 +42,13 @@ pacman -S --noconfirm git \
 	libxft \
 	libxinerama \
 	freetype2 \
-	fontconfig
+	fontconfig \
+	picom \
+	ncurses \
+	glu \
+	mesa \
+	wxwidgets-gtk3 \
+	libpng \
+	libssh \
+	unzip \
+	rust
