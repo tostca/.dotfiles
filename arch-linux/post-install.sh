@@ -51,4 +51,8 @@ pacman -S --noconfirm git \
 	libpng \
 	libssh \
 	unzip \
-	rust
+	rust \
+	lightdm \
+	lightdm-gtk-greeter
+
+system enable lightdm
