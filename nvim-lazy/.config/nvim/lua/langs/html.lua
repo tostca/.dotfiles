@@ -26,6 +26,7 @@ return {
             "heex",
             "eex",
             "elixir",
+            "erb",
           },
         },
         cssls = {},
