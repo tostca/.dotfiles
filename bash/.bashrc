@@ -288,6 +288,7 @@ alias virt='virt-manager -c "qemu:///session" --no-fork'
 
 # ASDF version control
 . "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"
 
 # export PYENV_ROOT="$HOME/.pyenv"
 # export PATH="$PYENV_ROOT/bin:$PATH"
@@ -298,6 +299,20 @@ alias virt='virt-manager -c "qemu:///session" --no-fork'
 
 # alias pip=/usr/local/bin/pip3
 # alias python=$(which python3)
+
+# dotnet
+export PATH="$HOME/.dotnet:$PATH"
+
+# Java
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home -v 11)
+export PATH=$JAVA_HOME/bin:$PATH
+
+# trying to deal with an OOM heap error in LSP server
+export GRADLE_OPTS="-Xmx12g -XX:+UseParallelGC"
+export JAVA_OPTS="-Xmx12g -XX:+UseParallelGC"
+# export _JAVA_OPTIONS="-Xmx12g -XX:+UseParallelGC -Dkotlin.daemon.jvm.options=-Xmx6g -XX:MaxMetaspaceSize=6g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8"
+export JDK_JAVA_OPTIONS="-Xmx12g -XX:+UseParallelGC"
 
 # Created by `pipx` on 2021-11-29 13:02:51
 export PATH="$PATH:/Users/tonystenberg/.local/bin"
