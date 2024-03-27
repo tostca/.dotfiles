@@ -265,20 +265,20 @@ alias virt='virt-manager -c "qemu:///session" --no-fork'
 # sourcing
 # source "$HOME/.privaterc"
 
-# if [[ "$OSTYPE" == "darwin"* ]]; then
-# 	source "$HOME/.fzf.bash"
-# 	# echo "I'm on Mac!"
-#
-# 	# brew bash completion
-# 	[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
-# else
-# 	#	source /usr/share/fzf/key-bindings.bash
-# 	#	source /usr/share/fzf/completion.bash
-# 	[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-# fi
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	source "$HOME/.fzf.bash"
+	# echo "I'm on Mac!"
+
+	# brew bash completion
+	[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+else
+	#	source /usr/share/fzf/key-bindings.bash
+	#	source /usr/share/fzf/completion.bash
+	[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+fi
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-# export PATH="/Users/mischa/.rd/bin:$PATH"
+export PATH="/Users/tonystenberg/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # Only needed for npm install on WSL
@@ -316,3 +316,12 @@ export JDK_JAVA_OPTIONS="-Xmx12g -XX:+UseParallelGC"
 
 # Created by `pipx` on 2021-11-29 13:02:51
 export PATH="$PATH:/Users/tonystenberg/.local/bin"
+
+# GPG config
+export GPG_TTY=$(tty)
+gpgconf --launch gpg-agent
+
+# work gitlab
+export GITLAB_BASE_URL=$(pass work/gitlab/terraform/base_url)
+export GITLAB_ACCESS_TOKEN="$(pass work/gitlab/terraform/init)"
+export GITLAB_TOKEN="$(pass work/gitlab/terraform/init)"
