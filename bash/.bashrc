@@ -167,7 +167,7 @@ export PS1="\n \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\]\n> "
 
 # ~~~~~~~~~~~~~~~ Aliases ~~~~~~~~~~~~~~~~~~~~~~~~
 
-alias v=nvim
+alias vi=nvim
 # alias vim=nvim
 
 # cd
@@ -304,9 +304,9 @@ export PATH="/Users/tonystenberg/.rd/bin:$PATH"
 export PATH="$HOME/.dotnet:$PATH"
 
 # Java
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-export JAVA_HOME=$(/usr/libexec/java_home -v 11)
-export PATH=$JAVA_HOME/bin:$PATH
+# export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+# export JAVA_HOME=$(/usr/libexec/java_home -v 11)
+# export PATH=$JAVA_HOME/bin:$PATH
 
 # trying to deal with an OOM heap error in LSP server
 export GRADLE_OPTS="-Xmx12g -XX:+UseParallelGC"
@@ -325,3 +325,7 @@ gpgconf --launch gpg-agent
 export GITLAB_BASE_URL=$(pass work/gitlab/terraform/base_url)
 export GITLAB_ACCESS_TOKEN="$(pass work/gitlab/terraform/init)"
 export GITLAB_TOKEN="$(pass work/gitlab/terraform/init)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
