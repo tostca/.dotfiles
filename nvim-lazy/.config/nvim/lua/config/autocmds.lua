@@ -17,3 +17,12 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
   group = autocomplete_group,
 })
+
+--fix kotlin comment string
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("FixKotlinCommentString", { clear = true }),
+  callback = function(ev)
+    vim.bo[ev.buf].commentstring = "// %s"
+  end,
+  pattern = { "kotlin" },
+})
