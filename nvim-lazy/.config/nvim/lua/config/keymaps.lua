@@ -128,3 +128,45 @@ vim.keymap.set("n", "<leader>od", "<cmd>ObsidianToday<CR>", { desc = "Obsidian c
 vim.keymap.set("n", "<leader>cw", "<cmd>windo diffthis<CR>", { desc = "Start diff for open windows" })
 -- Could also use <cmd>windo diffoff<CR>
 vim.keymap.set("n", "<leader>cW", "<cmd>diffoff!<CR>", { desc = "Stop diff for open windows" })
+
+-- Refactoring
+vim.keymap.set({ "n", "x" }, "<leader>rr", function()
+  require("refactoring").select_refactor()
+end, { desc = "Select refactor" })
+
+require("telescope").load_extension("refactoring")
+
+vim.keymap.set({ "n", "x" }, "<leader>rR", function()
+  require("telescope").extensions.refactoring.refactors()
+end, { desc = "Select refactor with telescope" })
+
+vim.keymap.set({ "x", "n" }, "<leader>rv", function()
+  require("refactoring").debug.print_var()
+end, { desc = "Log current variable" })
+
+vim.keymap.set("n", "<leader>rc", function()
+  require("refactoring").debug.cleanup({})
+end, { desc = "Cleanup logging variables" })
+
+-- compiler.nvim mappings
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>cR",
+  "<cmd>CompilerOpen<cr>",
+  { noremap = true, silent = true, desc = "Open compiler options" }
+)
+
+-- vim.api.nvim_set_keymap(
+--   "n",
+--   "<S-F6>",
+--   "<cmd>CompilerStop<cr>" -- (Optional, to dispose all tasks before redo)
+--     .. "<cmd>CompilerRedo<cr>",
+--   { noremap = true, silent = true, desc = "Compiler redo last selected option" }
+-- )
+
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>ct",
+  "<cmd>CompilerToggleResults<cr>",
+  { noremap = true, silent = true, desc = "Toggle compiler results" }
+)
