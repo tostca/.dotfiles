@@ -8,7 +8,7 @@ return {
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, { "kotlin-debug-adapter", "gradle-language-server" })
+      vim.list_extend(opts.ensure_installed, { "kotlin-debug-adapter", "gradle-language-server", "detekt" })
     end,
   },
   -- {
