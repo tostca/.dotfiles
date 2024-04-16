@@ -8,8 +8,16 @@ return {
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, { "kotlin-debug-adapter", "gradle-language-server", "detekt" })
+      vim.list_extend(opts.ensure_installed, { "kotlin-debug-adapter", "gradle-language-server", "detekt", "ktlint" })
     end,
+  },
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        kotlin = { "ktlint" },
+      },
+    },
   },
   -- {
   --   "neovim/nvim-lspconfig",
