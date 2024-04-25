@@ -3,7 +3,7 @@ return {
     "danymat/neogen",
     keys = {
       {
-        "<leader>cc",
+        "<leader>cg",
         function()
           require("neogen").generate({})
         end,
