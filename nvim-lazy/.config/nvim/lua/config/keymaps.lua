@@ -2,61 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 local Util = require("lazyvim.util")
--- HARPOON
-local harpoon = require("harpoon")
-harpoon:setup({})
-
-local conf = require("telescope.config").values
-local function toggle_telescope(harpoon_files)
-  local file_paths = {}
-  for _, item in ipairs(harpoon_files.items) do
-    table.insert(file_paths, item.value)
-  end
-
-  require("telescope.pickers")
-    .new({}, {
-      prompt_title = "Harpoon",
-      finder = require("telescope.finders").new_table({
-        results = file_paths,
-      }),
-      previewer = conf.file_previewer({}),
-      sorter = conf.generic_sorter({}),
-    })
-    :find()
-end
-
-vim.keymap.set("n", "<leader>ht", function()
-  toggle_telescope(harpoon:list())
-end, { desc = "Harpoon Telescope" })
-
-vim.keymap.set("n", "<leader>ha", function()
-  harpoon:list():append()
-end, { desc = "Harpoon [A]dd to list" })
-
-vim.keymap.set("n", "<leader>hf", function()
-  harpoon.ui:toggle_quick_menu(harpoon:list())
-end, { desc = "Harpoon toggle quick menu" })
-
-vim.keymap.set("n", "<leader>h1", function()
-  harpoon:list():select(1)
-end, { desc = "Select 1" })
-vim.keymap.set("n", "<leader>h2", function()
-  harpoon:list():select(2)
-end, { desc = "Select 2" })
-vim.keymap.set("n", "<leader>h3", function()
-  harpoon:list():select(3)
-end, { desc = "Select 3" })
-vim.keymap.set("n", "<leader>h4", function()
-  harpoon:list():select(4)
-end, { desc = "Select 4" })
-
--- Toggle previous & next buffers stored within Harpoon list
-vim.keymap.set("n", "<leader>hp", function()
-  harpoon:list():prev()
-end, { desc = "Harpoon Previous" })
-vim.keymap.set("n", "<leader>hn", function()
-  harpoon:list():next()
-end, { desc = "Harpoon Next" })
 
 -- REFACTORING.NVIM
 require("telescope").load_extension("refactoring")
@@ -170,3 +115,7 @@ vim.api.nvim_set_keymap(
   "<cmd>CompilerToggleResults<cr>",
   { noremap = true, silent = true, desc = "Toggle compiler results" }
 )
+
+-- Rest.nvim .http file plugin
+vim.keymap.set("n", "<leader>rg", "<cmd>Rest run<cr>", { desc = "Run Rest request under the cursor" })
+vim.keymap.set("n", "<leader>rl", "<cmd>Rest run last<cr>", { desc = "Re-run latest rest request under the cursor" })
