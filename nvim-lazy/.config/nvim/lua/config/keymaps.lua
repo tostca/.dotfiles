@@ -4,11 +4,11 @@
 local Util = require("lazyvim.util")
 
 -- REFACTORING.NVIM
-require("telescope").load_extension("refactoring")
-
-vim.keymap.set({ "n", "x" }, "<leader>rr", function()
-  require("telescope").extensions.refactoring.refactors()
-end)
+-- require("telescope").load_extension("refactoring")
+--
+-- vim.keymap.set({ "n", "x" }, "<leader>rr", function()
+--   require("telescope").extensions.refactoring.refactors()
+-- end)
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -75,23 +75,23 @@ vim.keymap.set("n", "<leader>cw", "<cmd>windo diffthis<CR>", { desc = "Start dif
 vim.keymap.set("n", "<leader>cW", "<cmd>diffoff!<CR>", { desc = "Stop diff for open windows" })
 
 -- Refactoring
-vim.keymap.set({ "n", "x" }, "<leader>rr", function()
-  require("refactoring").select_refactor()
-end, { desc = "Select refactor" })
-
-require("telescope").load_extension("refactoring")
-
-vim.keymap.set({ "n", "x" }, "<leader>rR", function()
-  require("telescope").extensions.refactoring.refactors()
-end, { desc = "Select refactor with telescope" })
-
-vim.keymap.set({ "x", "n" }, "<leader>rv", function()
-  require("refactoring").debug.print_var()
-end, { desc = "Log current variable" })
-
-vim.keymap.set("n", "<leader>rc", function()
-  require("refactoring").debug.cleanup({})
-end, { desc = "Cleanup logging variables" })
+-- vim.keymap.set({ "n", "x" }, "<leader>rr", function()
+--   require("refactoring").select_refactor()
+-- end, { desc = "Select refactor" })
+--
+-- require("telescope").load_extension("refactoring")
+--
+-- vim.keymap.set({ "n", "x" }, "<leader>rR", function()
+--   require("telescope").extensions.refactoring.refactors()
+-- end, { desc = "Select refactor with telescope" })
+--
+-- vim.keymap.set({ "x", "n" }, "<leader>rv", function()
+--   require("refactoring").debug.print_var()
+-- end, { desc = "Log current variable" })
+--
+-- vim.keymap.set("n", "<leader>rc", function()
+--   require("refactoring").debug.cleanup({})
+-- end, { desc = "Cleanup logging variables" })
 
 -- compiler.nvim mappings
 vim.api.nvim_set_keymap(
