@@ -2,4 +2,3 @@
 require("config.lazy")
 require("snippets.all-snippets")
 require("elixir.lexical")
-require("kotlin.language_server")
