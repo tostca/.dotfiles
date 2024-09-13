@@ -1,9 +1,76 @@
 return {
-  -- add elixir to treesitter
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, { "elixir", "eex", "heex" })
-    end,
-  },
+  -- -- add elixir to treesitter
+  -- {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   opts = function(_, opts)
+  --     vim.list_extend(opts.ensure_installed, { "elixir", "eex", "heex" })
+  --   end,
+  -- },
+  -- {
+  --   "mfussenegger/nvim-dap",
+  --   optional = true,
+  --   dependencies = {
+  --     "williamboman/mason.nvim",
+  --     "rcarriga/nvim-dap-ui",
+  --     "theHamsta/nvim-dap-virtual-text",
+  --     "nvim-neotest/nvim-nio",
+  --   },
+  --   opts = function()
+  --     local dap = require("dap")
+  --
+  --     local elixir_ls_debugger = vim.fn.exepath("/Users/tonystenberg/tools/elixir-ls/debug_adapter.sh")
+  --     if elixir_ls_debugger ~= "" then
+  --       dap.adapters.mix_task = {
+  --         type = "executable",
+  --         command = elixir_ls_debugger,
+  --       }
+  --
+  --       dap.configurations.elixir = {
+  --         {
+  --           type = "mix_task",
+  --           name = "phoenix server",
+  --           task = "phx.server",
+  --           request = "launch",
+  --           projectDir = "${workspaceFolder}",
+  --           exitAfterTaskReturns = false,
+  --           debugAutoInterpretAllModules = false,
+  --         },
+  --         {
+  --           type = "mix_task",
+  --           name = "mix test",
+  --           task = "test",
+  --           taskArgs = { "--trace" },
+  --           request = "launch",
+  --           startApps = true,
+  --           projectDir = "${workspaceFolder}",
+  --           exitAfterTaskReturns = false,
+  --           debugAutoInterpretAllModules = false,
+  --         },
+  --         {
+  --           type = "mix_task",
+  --           name = "mix current file",
+  --           task = "run",
+  --           request = "launch",
+  --           taskArgs = { "--trace" },
+  --           startApps = true,
+  --           projectDir = "${workspaceFolder}",
+  --           exitAfterTaskReturns = false,
+  --           debugAutoInterpretAllModules = false,
+  --         },
+  --         {
+  --           type = "mix_task",
+  --           name = "no mix current file",
+  --           task = "run",
+  --           request = "launch",
+  --           taskArgs = { "${file}", "--no-mix-exs" },
+  --           startApps = false,
+  --           projectDir = "${fileDirname}",
+  --           exitAfterTaskReturns = false,
+  --           -- debugAutoInterpretAllModules = false,
+  --           requireFiles = { "${file}" },
+  --         },
+  --       }
+  --     end
+  --   end,
+  -- },
 }
