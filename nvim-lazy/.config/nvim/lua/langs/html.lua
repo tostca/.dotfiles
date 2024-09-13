@@ -24,10 +24,11 @@ return {
           filetypes = {
             "html",
             "heex",
-            "eex",
-            "elixir",
+            -- "eex",
+            -- "elixir",
             "erb",
             "phoenix-heex",
+            "htmldjango",
           },
         },
         cssls = {},
