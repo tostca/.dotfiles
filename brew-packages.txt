@@ -30,3 +30,10 @@ virt-manager \
 pass \
 gpg \
 pinentry-mac \
+age \
+sshs \
+brew tap julien-cpsn/atac \
+atac \
+termshark \
+brew tap jorgerojas26/lazysql \
+brew install lazysql \
