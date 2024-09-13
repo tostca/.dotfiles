@@ -8,7 +8,7 @@
 # PS1='[\u@\h \W]\$ '
 
 # Set to superior editing mode
-set -o vi
+# set -o vi
 
 # keybinds
 # bind -x '"\C-l":clear'
@@ -193,10 +193,14 @@ alias icloud="cd \$ICLOUD"
 # alias hlpp='cd $REPOS/github.com/mischavandenburg/homelab-private-production/'
 
 # ls
-alias ls='ls --color=auto'
+# alias ls='ls --color=auto'
 alias ll='ls -la'
 # alias la='exa -laghm@ --all --icons --git --color=always'
 alias la='ls -lathr'
+alias ls='eza -lh --group-directories-first --icons'
+alias lsa='ls -a'
+alias lt='eza --tree --level=2 --long --icons --git'
+alias lta='lt -a'
 
 # finds all files recursively and sorts by last modification, ignore hidden files
 alias last='find . -type f -not -path "*/\.*" -exec ls -lrt {} +'
@@ -309,10 +313,12 @@ export PATH="$HOME/.dotnet:$PATH"
 # export PATH=$JAVA_HOME/bin:$PATH
 
 # trying to deal with an OOM heap error in LSP server
-export GRADLE_OPTS="-Xmx12g -XX:+UseParallelGC"
-export JAVA_OPTS="-Xmx12g -XX:+UseParallelGC"
+# export GRADLE_OPTS="-Xmx8g -XX:+UseParallelGC -Dorg.gradle.daemon=false"
+export GRADLE_OPTS="-Xmx16g -Dorg.gradle.daemon=false"
+export JAVA_OPTS="-Xmx16g -XX:+HeapDumpOnOutOfMemoryError"
+export ANDROID_HOME="/Users/tonystenberg/Library/Android/sdk"
 # export _JAVA_OPTIONS="-Xmx12g -XX:+UseParallelGC -Dkotlin.daemon.jvm.options=-Xmx6g -XX:MaxMetaspaceSize=6g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8"
-export JDK_JAVA_OPTIONS="-Xmx12g -XX:+UseParallelGC"
+# export JDK_JAVA_OPTIONS="-Xmx12g -XX:+UseParallelGC"
 
 # Created by `pipx` on 2021-11-29 13:02:51
 export PATH="$PATH:/Users/tonystenberg/.local/bin"
@@ -325,6 +331,9 @@ gpgconf --launch gpg-agent
 export GITLAB_BASE_URL=$(pass work/gitlab/terraform/base_url)
 export GITLAB_ACCESS_TOKEN="$(pass work/gitlab/terraform/init)"
 export GITLAB_TOKEN="$(pass work/gitlab/terraform/init)"
+
+# micromamba
+eval "$(micromamba shell hook --shell bash)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
