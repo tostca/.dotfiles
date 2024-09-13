@@ -115,7 +115,3 @@ vim.api.nvim_set_keymap(
   "<cmd>CompilerToggleResults<cr>",
   { noremap = true, silent = true, desc = "Toggle compiler results" }
 )
-
--- Rest.nvim .http file plugin
-vim.keymap.set("n", "<leader>rg", "<cmd>Rest run<cr>", { desc = "Run Rest request under the cursor" })
-vim.keymap.set("n", "<leader>rl", "<cmd>Rest run last<cr>", { desc = "Re-run latest rest request under the cursor" })
