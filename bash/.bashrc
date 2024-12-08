@@ -138,10 +138,10 @@ export HISTCONTROL=ignorespace
 
 # ~~~~~~~~~~~~~~~ Prompt ~~~~~~~~~~~~~~~~~~~~~~~~
 function parse_git_dirty {
-	[[ $(git status --porcelain 2>/dev/null) ]] && echo "*"
+  [[ $(git status --porcelain 2>/dev/null) ]] && echo "*"
 }
 function parse_git_branch {
-	git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1$(parse_git_dirty))/"
+  git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1$(parse_git_dirty))/"
 }
 
 # export PS1="\n\t \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\]\n> "
@@ -270,15 +270,15 @@ alias virt='virt-manager -c "qemu:///session" --no-fork'
 # source "$HOME/.privaterc"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	source "$HOME/.fzf.bash"
-	# echo "I'm on Mac!"
+  source "$HOME/.fzf.bash"
+  # echo "I'm on Mac!"
 
-	# brew bash completion
-	[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+  # brew bash completion
+  [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 else
-	#	source /usr/share/fzf/key-bindings.bash
-	#	source /usr/share/fzf/completion.bash
-	[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+  #	source /usr/share/fzf/key-bindings.bash
+  #	source /usr/share/fzf/completion.bash
+  [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 fi
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
@@ -332,9 +332,14 @@ export GITLAB_BASE_URL=$(pass work/gitlab/terraform/base_url)
 export GITLAB_ACCESS_TOKEN="$(pass work/gitlab/terraform/init)"
 export GITLAB_TOKEN="$(pass work/gitlab/terraform/init)"
 
+# AI tools
+export ANTHROPIC_API_KEY="$(pass personal/ai/claude/api_token)"
+
 # micromamba
 eval "$(micromamba shell hook --shell bash)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+eval "$(starship init bash)"
