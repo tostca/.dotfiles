@@ -24,6 +24,7 @@ return {
             "less",
             "heex",
             "erb",
+            "eruby",
             -- "eex",
             -- "elixir",
             "phoenix-heex",
