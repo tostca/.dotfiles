@@ -6,15 +6,10 @@
 #: individual font faces and even specify special fonts for particular
 #: characters.
 
-font_family      Berkeley Mono Regular
-bold_font        Berkeley Mono Bold
-italic_font      Berkeley Mono Medium Italic
-bold_italic_font Berkeley Mono Bold Italic
-
-# font_family      Intel One Mono Regular
-# bold_font        Intel One Mono Bold
-# italic_font      Intel One Mono Medium Italic
-# bold_italic_font Intel One Mono Bold Italic
+font_family      Intel One Mono Regular
+bold_font        Intel One Mono Bold
+italic_font      Intel One Mono Medium Italic
+bold_italic_font Intel One Mono Bold Italic
 
 #: You can specify different fonts for the bold/italic/bold-italic
 #: variants. To get a full list of supported fonts use the `kitty
@@ -29,9 +24,6 @@ bold_italic_font Berkeley Mono Bold Italic
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-# Work monitor
-# font_size 18.0
-# Personal monitor
 font_size 15.0
 adjust_column_width -1
 
@@ -1438,8 +1430,7 @@ dynamic_background_opacity yes
 #: background_opacity. If you want to use both, you are probably
 #: better off just hiding the titlebar with hide_window_decorations.
 
-# macos_option_as_alt left
-
+# macos_option_as_alt no
 
 #: Use the Option key as an Alt key on macOS. With this set to no,
 #: kitty will use the macOS native Option+Key to enter Unicode
@@ -2260,7 +2251,7 @@ map kitty_mod+down neighboring_window down
 #: }}}
 
 #: }}}
-# include ~/tool-themes/tokyonight.nvim/extras/kitty/tokyonight_moon.conf
+# include ~/tool-themes/tokyonight.nvim/extras/kitty/tokyonight_night.conf
 
 
 # BEGIN_KITTY_THEME
