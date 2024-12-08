@@ -3,13 +3,6 @@
 -- Add any additional keymaps here
 local Util = require("lazyvim.util")
 
--- REFACTORING.NVIM
--- require("telescope").load_extension("refactoring")
---
--- vim.keymap.set({ "n", "x" }, "<leader>rr", function()
---   require("telescope").extensions.refactoring.refactors()
--- end)
-
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -21,10 +14,6 @@ vim.keymap.set(
   "<cmd>source ~/.config/nvim/lua/snippets/elixir.lua<CR>",
   { desc = "Reload Lua Snippets" }
 )
-
--- Dadbod database plugin
-vim.keymap.set("n", "<leader>at", "<cmd>DBUIToggle<CR>", { desc = "Database UI Toggle" })
-vim.keymap.set("n", "<leader>aa", "<cmd>DBUIAddConnection<CR>", { desc = "Database UI Add Connection" })
 
 -- yq commands to convert YML to JSON and JSON to YML.
 vim.keymap.set("n", "<leader>cj", "<cmd>%!yq -o=json '.'<CR>", { desc = "Convert YAML to JSON" })
@@ -73,45 +62,3 @@ vim.keymap.set("n", "<leader>od", "<cmd>ObsidianToday<CR>", { desc = "Obsidian c
 vim.keymap.set("n", "<leader>cw", "<cmd>windo diffthis<CR>", { desc = "Start diff for open windows" })
 -- Could also use <cmd>windo diffoff<CR>
 vim.keymap.set("n", "<leader>cW", "<cmd>diffoff!<CR>", { desc = "Stop diff for open windows" })
-
--- Refactoring
--- vim.keymap.set({ "n", "x" }, "<leader>rr", function()
---   require("refactoring").select_refactor()
--- end, { desc = "Select refactor" })
---
--- require("telescope").load_extension("refactoring")
---
--- vim.keymap.set({ "n", "x" }, "<leader>rR", function()
---   require("telescope").extensions.refactoring.refactors()
--- end, { desc = "Select refactor with telescope" })
---
--- vim.keymap.set({ "x", "n" }, "<leader>rv", function()
---   require("refactoring").debug.print_var()
--- end, { desc = "Log current variable" })
---
--- vim.keymap.set("n", "<leader>rc", function()
---   require("refactoring").debug.cleanup({})
--- end, { desc = "Cleanup logging variables" })
-
--- compiler.nvim mappings
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>cR",
-  "<cmd>CompilerOpen<cr>",
-  { noremap = true, silent = true, desc = "Open compiler options" }
-)
-
--- vim.api.nvim_set_keymap(
---   "n",
---   "<S-F6>",
---   "<cmd>CompilerStop<cr>" -- (Optional, to dispose all tasks before redo)
---     .. "<cmd>CompilerRedo<cr>",
---   { noremap = true, silent = true, desc = "Compiler redo last selected option" }
--- )
-
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>ct",
-  "<cmd>CompilerToggleResults<cr>",
-  { noremap = true, silent = true, desc = "Toggle compiler results" }
-)
