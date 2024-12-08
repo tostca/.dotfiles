@@ -27,31 +27,31 @@ vim.keymap.set("n", "<leader>uc", function()
 end, { desc = "Toggle Conceal" })
 
 -- Delete all buffers except current
-local function delete_all_buffers_except_current()
-  local bufs = vim.api.nvim_list_bufs()
-  local current_buf = vim.api.nvim_get_current_buf()
-  for _, i in ipairs(bufs) do
-    if i ~= current_buf then
-      vim.api.nvim_buf_delete(i, {})
-    end
-  end
-end
+-- local function delete_all_buffers_except_current()
+--   local bufs = vim.api.nvim_list_bufs()
+--   local current_buf = vim.api.nvim_get_current_buf()
+--   for _, i in ipairs(bufs) do
+--     if i ~= current_buf then
+--       vim.api.nvim_buf_delete(i, {})
+--     end
+--   end
+-- end
+-- --
+-- -- Delete all buffers
+-- local function delete_all_buffers()
+--   local bufs = vim.api.nvim_list_bufs()
+--   for _, i in ipairs(bufs) do
+--     vim.api.nvim_buf_delete(i, {})
+--   end
+-- end
 --
--- Delete all buffers
-local function delete_all_buffers()
-  local bufs = vim.api.nvim_list_bufs()
-  for _, i in ipairs(bufs) do
-    vim.api.nvim_buf_delete(i, {})
-  end
-end
-
-vim.keymap.set("n", "<leader>bc", function()
-  delete_all_buffers_except_current()
-end, { desc = "Delete all buffers but current" })
-
-vim.keymap.set("n", "<leader>ba", function()
-  delete_all_buffers()()
-end, { desc = "Delete all buffers" })
+-- vim.keymap.set("n", "<leader>bc", function()
+--   delete_all_buffers_except_current()
+-- end, { desc = "Delete all buffers but current" })
+--
+-- vim.keymap.set("n", "<leader>ba", function()
+--   delete_all_buffers()()
+-- end, { desc = "Delete all buffers" })
 
 -- Obsidian
 vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<CR>", { desc = "Obsidian find notes by tag" })
