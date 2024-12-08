@@ -1,4 +1,25 @@
 local formatter = vim.g.lazyvim_ruby_formatter or "rubocop"
+-- https://github.com/Shopify/ruby-lsp/blob/4f7ce060de3257c35028ccb70e1854da952cdb95/vscode/package.json#L231
+-- local enabledFeatures = {
+--   "codeActions",
+--   -- "diagnostics", -- doesn't support custom Rubocop config
+--   "documentHighlights",
+--   "documentLink",
+--   "documentSymbols",
+--   "foldingRanges",
+--   -- "formatting", -- doesn't support custom Rubocop config
+--   "hover",
+--   "inlayHint",
+--   -- "onTypeFormatting",
+--   "selectionRanges",
+--   "semanticHighlighting",
+--   "completion",
+--   "codeLens",
+--   "definition",
+--   "workspaceSymbol",
+--   "signatureHelp",
+--   "typeHierarchy",
+-- }
 
 return {
   recommended = function()
@@ -22,6 +43,14 @@ return {
         ruby_lsp = {
           mason = false,
           cmd = { vim.fn.expand("~/.asdf/shims/ruby-lsp") },
+          init_options = {
+            -- enabledFeatures = enabledFeatures,
+            -- enableExperimentalFeatures = true,
+          },
+          -- settings = {
+          --   rubyLsp = {
+          --     bundleGemfile = ".lsp/Gemfile",
+          --   },
         },
         -- Install the gem. There's no need to require it, since the server is used as a standalone executable.
         -- group :development do
@@ -40,7 +69,7 @@ return {
         -- `bundle exec srb`
         -- To initialize Sorbet in an existing project, run:
         -- bundle exec tapioca init
-        sorbet = {},
+        -- sorbet = {},
         stimulus_ls = {},
       },
     },
@@ -51,7 +80,7 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
-    optional = true,
+    -- optional = true,
     dependencies = {
       "suketa/nvim-dap-ruby",
       config = function()
@@ -61,17 +90,17 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    optional = true,
+    -- optional = true,
     opts = {
       formatters_by_ft = {
         ruby = { formatter },
-        eruby = { "erb-format" },
+        eruby = { "erb_format" },
       },
     },
   },
   {
     "nvim-neotest/neotest",
-    optional = true,
+    -- optional = true,
     dependencies = {
       "olimorris/neotest-rspec",
     },
