@@ -7,39 +7,11 @@ return {
         ["<CR>"] = {},
         ["<C-y>"] = { "select_and_accept" },
       },
+      completion = {
+        trigger = {
+          show_on_insert_on_trigger_character = false,
+        },
+      },
     },
   },
-  -- keys = {
-  --   -- disable the keymap to select
-  --   { "<CR>", false },
-  --
-  --   -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-  --   ["<C-y>"] = require("cmp").mapping.confirm({ select = true }),
-  -- },
-  -- {
-  --   "saghen/blink.cmp",
-  --   version = "v0.*",
-  --   -- !Important! Make sure you're using the latest release of LuaSnip
-  --   -- `main` does not work at the moment
-  --   dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
-  --   opts = {
-  --     snippets = {
-  --       expand = function(snippet)
-  --         require("luasnip").lsp_expand(snippet)
-  --       end,
-  --       active = function(filter)
-  --         if filter and filter.direction then
-  --           return require("luasnip").jumpable(filter.direction)
-  --         end
-  --         return require("luasnip").in_snippet()
-  --       end,
-  --       jump = function(direction)
-  --         require("luasnip").jump(direction)
-  --       end,
-  --     },
-  --     sources = {
-  --       default = { "lsp", "path", "luasnip", "buffer" },
-  --     },
-  --   },
-  -- },
 }
