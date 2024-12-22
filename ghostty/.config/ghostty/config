@@ -1,11 +1,16 @@
 # Fonts
-font-family = Symbols Nerd Font Mono
+# font-family = JetBrains Mono
 font-family = Berkeley Mono Regular
 font-family-bold = Berkeley Mono Bold
 font-family-italic = Berkeley Mono Medium Italic
 font-family-bold-italic = Berkeley Mono Bold Italic
 font-size = 16
-adjust-underline-position = 4
+# font-thicken = true
+# font-variation = wght=100
+# adjust-underline-position = 4
+
+# Macos
+macos-option-as-alt = right
 
 # Theme
 theme = catppuccin-mocha
