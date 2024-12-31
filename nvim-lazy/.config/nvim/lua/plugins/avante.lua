@@ -17,7 +17,7 @@ return {
         max_tokens = 4096,
       },
       auto_suggestions_provider = "copilot",
-      hints = { enabled = false },
+      hints = { enabled = true },
       -- provider = "openai",
       -- openai = {
       --   endpoint = "http://localhost:8080/v1",
