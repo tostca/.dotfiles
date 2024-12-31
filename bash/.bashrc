@@ -281,18 +281,10 @@ else
   [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 fi
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/tonystenberg/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
 # Only needed for npm install on WSL
 #export NVM_DIR="$HOME/.config/nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
-# ASDF version control
-. "$HOME/.asdf/asdf.sh"
-. "$HOME/.asdf/completions/asdf.bash"
 
 # export PYENV_ROOT="$HOME/.pyenv"
 # export PATH="$PYENV_ROOT/bin:$PATH"
@@ -303,22 +295,6 @@ export PATH="/Users/tonystenberg/.rd/bin:$PATH"
 
 # alias pip=/usr/local/bin/pip3
 # alias python=$(which python3)
-
-# dotnet
-export PATH="$HOME/.dotnet:$PATH"
-
-# Java
-# export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-# export JAVA_HOME=$(/usr/libexec/java_home -v 11)
-# export PATH=$JAVA_HOME/bin:$PATH
-
-# trying to deal with an OOM heap error in LSP server
-# export GRADLE_OPTS="-Xmx8g -XX:+UseParallelGC -Dorg.gradle.daemon=false"
-export GRADLE_OPTS="-Xmx16g -Dorg.gradle.daemon=false"
-export JAVA_OPTS="-Xmx16g -XX:+HeapDumpOnOutOfMemoryError"
-export ANDROID_HOME="/Users/tonystenberg/Library/Android/sdk"
-# export _JAVA_OPTIONS="-Xmx12g -XX:+UseParallelGC -Dkotlin.daemon.jvm.options=-Xmx6g -XX:MaxMetaspaceSize=6g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8"
-# export JDK_JAVA_OPTIONS="-Xmx12g -XX:+UseParallelGC"
 
 # Created by `pipx` on 2021-11-29 13:02:51
 export PATH="$PATH:/Users/tonystenberg/.local/bin"
@@ -335,11 +311,5 @@ export GITLAB_TOKEN="$(pass work/gitlab/terraform/init)"
 # AI tools
 export ANTHROPIC_API_KEY="$(pass personal/ai/claude/api_token)"
 
-# micromamba
-eval "$(micromamba shell hook --shell bash)"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
 eval "$(starship init bash)"
+eval "$(/Users/tonystenberg/.local/bin/mise activate bash)"
