@@ -42,7 +42,7 @@ return {
         -- end
         ruby_lsp = {
           mason = false,
-          cmd = { vim.fn.expand("~/.asdf/shims/ruby-lsp") },
+          cmd = { vim.fn.expand("~/.local/share/mise/installs/ruby/3.4.1/bin/ruby-lsp") },
           init_options = {
             -- enabledFeatures = enabledFeatures,
             -- enableExperimentalFeatures = true,
