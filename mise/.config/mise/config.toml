@@ -1,0 +1,11 @@
+[tools]
+deno = "latest"
+elixir = "latest"
+erlang = "27"
+go = "1.23"
+node = "22"
+python = "3.13"
+ruby = "3.4"
+rust = "latest"
+usage = "latest"
+zig = "0.13"
