@@ -31,3 +31,14 @@ window-decoration = false
 # Other
 copy-on-select = clipboard
 shell-integration-features = cursor,sudo,no-title
+
+# Keybinds
+keybind = alt+[=unbind
+keybind = alt+]=unbind
+keybind = ctrl+[=unbind
+keybind = ctrl+]=unbind
+
+# cursor
+cursor-style-blink = false
+cursor-style = block
+cursor-invert-fg-bg = true
