@@ -310,6 +310,7 @@ export GITLAB_TOKEN="$(pass work/gitlab/terraform/init)"
 
 # AI tools
 export ANTHROPIC_API_KEY="$(pass personal/ai/claude/api_token)"
+export OPENAI_API_KEY=$(pass personal/openai/rapid_ai_agents_api_token)
 
 eval "$(starship init bash)"
 eval "$(/Users/tonystenberg/.local/bin/mise activate bash)"
