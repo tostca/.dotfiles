@@ -6,27 +6,20 @@ return {
     end,
     event = "VeryLazy",
     opts = {
-      provider = "copilot",
-      copilot = {
-        endpoint = "https://api.githubcopilot.com",
-        model = "gpt-4o-2024-08-06",
-        proxy = nil, -- [protocol://]host[:port] Use this proxy
-        allow_insecure = false, -- Allow insecure server connections
-        timeout = 30000, -- Timeout in milliseconds
-        temperature = 0,
-        max_tokens = 4096,
+      debug = true,
+      provider = "ollama",
+      ollama = {
+        api_key_name = "",
+        endpoint = "http://127.0.0.1:11434",
+        model = "tony-qwen",
+        options = {
+          num_ctx = 32768,
+          temperature = 0,
+        },
+        stream = true,
       },
-      auto_suggestions_provider = "copilot",
+      auto_suggestions_provider = "ollama",
       hints = { enabled = true },
-      -- provider = "openai",
-      -- openai = {
-      --   endpoint = "http://localhost:8080/v1",
-      --   -- endpoint = "http://localhost:11434/v1", -- doesn't work as well
-      --   model = "deepseek-coder-v2-lite-instruct",
-      --   temperature = 0,
-      --   max_tokens = 4096,
-      --   ["local"] = true,
-      -- },
       windows = {
         position = "right",
         width = 40,
