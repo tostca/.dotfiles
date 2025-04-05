@@ -37,3 +37,11 @@ atac \
 termshark \
 brew tap jorgerojas26/lazysql \
 brew install lazysql \
+brew install derailed/k9s/k9s \
+brew install kubectx \
+brew install kubescape \
+brew install ctop \
+brew install lazydocker \
+brew install dive \
+brew install hurl \
+
