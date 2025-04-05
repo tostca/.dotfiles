@@ -311,6 +311,12 @@ export GITLAB_TOKEN="$(pass work/gitlab/terraform/init)"
 # AI tools
 export ANTHROPIC_API_KEY="$(pass personal/ai/claude/api_token)"
 export OPENAI_API_KEY=$(pass personal/openai/rapid_ai_agents_api_token)
+
+# Bitwarden
+export BW_CLIENTID="$(pass work/bitwarden/client_id)"
+export BW_CLIENTSECRET=$(pass work/bitwarden/client_secret)
+export BW_PASSWORD=$(pass work/bitwarden/bw_password)
+
 # SSH
 alias servers="cat ~/.ssh/config | grep \"Host \" | cut -d \" \" -f 2 | grep -v -e \"*\" -e \"personalgit\" -e \"workgit\" -e \"github*\" -e \"gitlab*\" | sort"
 alias sshsrv="servers | fzf | xargs -o ssh"
