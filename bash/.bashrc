@@ -311,6 +311,9 @@ export GITLAB_TOKEN="$(pass work/gitlab/terraform/init)"
 # AI tools
 export ANTHROPIC_API_KEY="$(pass personal/ai/claude/api_token)"
 export OPENAI_API_KEY=$(pass personal/openai/rapid_ai_agents_api_token)
+# SSH
+alias servers="cat ~/.ssh/config | grep \"Host \" | cut -d \" \" -f 2 | grep -v -e \"*\" -e \"personalgit\" -e \"workgit\" -e \"github*\" -e \"gitlab*\" | sort"
+alias sshsrv="servers | fzf | xargs -o ssh"
 
 eval "$(starship init bash)"
 eval "$(/Users/tonystenberg/.local/bin/mise activate bash)"
