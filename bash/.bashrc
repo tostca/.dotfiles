@@ -322,4 +322,5 @@ alias servers="cat ~/.ssh/config | grep \"Host \" | cut -d \" \" -f 2 | grep -v 
 alias sshsrv="servers | fzf | xargs -o ssh"
 
 eval "$(starship init bash)"
+eval "$(direnv hook bash)"
 eval "$(/Users/tonystenberg/.local/bin/mise activate bash)"
