@@ -1,5 +1,6 @@
 [tools]
 deno = "latest"
+"dotnet:GitVersion.Tool" = "latest"
 elixir = "latest"
 erlang = "27"
 go = "1.23"
