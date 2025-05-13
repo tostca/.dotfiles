@@ -9,3 +9,6 @@ ruby = "3.4"
 rust = "latest"
 usage = "latest"
 zig = "0.13"
+
+[settings]
+experimental = true
