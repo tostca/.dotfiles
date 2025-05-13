@@ -24,8 +24,8 @@ export BROWSER="firefox"
 export DOTFILES="~/.dotfiles"
 # export LAB="$GHREPOS/lab"
 export SCRIPTS="$DOTFILES/scripts"
-export ICLOUD="$HOME/icloud"
-export SECOND_BRAIN="$HOME/second-brain"
+# export ICLOUD="$HOME/icloud"
+# export SECOND_BRAIN="$HOME/second-brain"
 
 # Go related. In general all executables and scripts go in .local/bin
 # export GOBIN="$HOME/.local/bin"
@@ -174,17 +174,17 @@ alias vi=nvim
 # alias vo='cd $REPOS/github.com/VanOord/'
 alias ..="cd .."
 alias scripts='cd $SCRIPTS'
-alias cdblog="cd ~/personal/blog"
-alias cdpblog='cd $SECOND_BRAIN/2-areas/blog/content'
+# alias cdblog="cd ~/personal/blog"
+# alias cdpblog='cd $SECOND_BRAIN/2-areas/blog/content'
 # alias lab='cd $LAB'
 # alias alab='cd $GHREPOS/azure-lab'
-alias dot='cd $GHREPOS/dotfiles'
+# alias dot='cd $GHREPOS/dotfiles'
 # alias repos='cd $REPOS'
 # alias cdgo='cd $GHREPOS/go/'
 # alias ex='cd $REPOS/github.com/mischavandenburg/go/Exercism/'
 # alias rwdot='cd $REPOS/github.com/rwxrob/dot'
 alias c="clear"
-alias icloud="cd \$ICLOUD"
+# alias icloud="cd \$ICLOUD"
 # alias rob='cd $REPOS/github.com/rwxrob'
 # alias homelab='cd $REPOS/github.com/mischavandenburg/homelab/'
 # alias hl='homelab'
@@ -205,16 +205,16 @@ alias lta='lt -a'
 # finds all files recursively and sorts by last modification, ignore hidden files
 alias last='find . -type f -not -path "*/\.*" -exec ls -lrt {} +'
 
-alias sv='sudoedit'
-alias sk='killall ssh-agent && source ~/.zshrc'
+# alias sv='sudoedit'
+# alias sk='killall ssh-agent && source ~/.zshrc'
 alias t='tmux'
-alias e='exit'
+# alias e='exit'
 alias syu='sudo pacman -Syu'
 
 # git
-alias gp='git pull'
-alias gpr='git pull --rebase'
-alias gs='git status'
+# alias gp='git pull'
+# alias gpr='git pull --rebase'
+# alias gs='git status'
 alias lg='lazygit'
 
 # ricing
@@ -264,7 +264,7 @@ alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}
 alias vf='v $(fp)'
 
 # start virt-manager
-alias virt='virt-manager -c "qemu:///session" --no-fork'
+# alias virt='virt-manager -c "qemu:///session" --no-fork'
 
 # sourcing
 # source "$HOME/.privaterc"
@@ -303,19 +303,9 @@ export PATH="$PATH:/Users/tonystenberg/.local/bin"
 export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent
 
-# work gitlab
-export GITLAB_BASE_URL=$(pass work/gitlab/terraform/base_url)
-export GITLAB_ACCESS_TOKEN="$(pass work/gitlab/terraform/init)"
-export GITLAB_TOKEN="$(pass work/gitlab/terraform/init)"
-
 # AI tools
-export ANTHROPIC_API_KEY="$(pass personal/ai/claude/api_token)"
-export OPENAI_API_KEY=$(pass personal/openai/rapid_ai_agents_api_token)
-
-# Bitwarden
-export BW_CLIENTID="$(pass work/bitwarden/client_id)"
-export BW_CLIENTSECRET=$(pass work/bitwarden/client_secret)
-export BW_PASSWORD=$(pass work/bitwarden/bw_password)
+# export ANTHROPIC_API_KEY="$(pass personal/ai/claude/api_token)"
+# export OPENAI_API_KEY=$(pass personal/openai/rapid_ai_agents_api_token)
 
 # SSH
 alias servers="cat ~/.ssh/config | grep \"Host \" | cut -d \" \" -f 2 | grep -v -e \"*\" -e \"personalgit\" -e \"workgit\" -e \"github*\" -e \"gitlab*\" | sort"

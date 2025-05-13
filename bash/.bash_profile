@@ -22,5 +22,3 @@ if [ -r ~/.bashrc ]; then
 fi
 
 export XDG_CONFIG_HOME="$HOME"/.config
-
-complete -C /opt/homebrew/bin/terraform terraform
