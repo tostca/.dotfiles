@@ -1,16 +1,18 @@
 # Fonts
 # font-family = JetBrains Mono
-font-family = Berkeley Mono Regular
-font-family-bold = Berkeley Mono Bold
-font-family-italic = Berkeley Mono Medium Italic
-font-family-bold-italic = Berkeley Mono Bold Italic
-font-size = 16
+# font-family = Berkeley Mono Regular
+# font-family = CaskaydiaMono Nerd Font
+font-family = CaskaydiaCove Nerd Font
+# font-family-bold = Berkeley Mono Bold
+# font-family-italic = Berkeley Mono Medium Italic
+# font-family-bold-italic = Berkeley Mono Bold Italic
+font-size = 14
 # font-thicken = true
 # font-variation = wght=100
 # adjust-underline-position = 4
 
 # Macos
-macos-option-as-alt = right
+# macos-option-as-alt = right
 
 # Theme
 theme = catppuccin-mocha
@@ -21,12 +23,13 @@ mouse-hide-while-typing = true
 mouse-scroll-multiplier = 2
 
 # Window
-gtk-single-instance = true
-gtk-tabs-location = bottom
-gtk-wide-tabs = false
-window-padding-y = 2,0
-window-padding-balance = true
-window-decoration = false
+gtk-titlebar = false
+# gtk-single-instance = true
+# gtk-tabs-location = bottom
+# gtk-wide-tabs = false
+# window-padding-y = 2,0
+# window-padding-balance = true
+# window-decoration = false
 
 # Other
 copy-on-select = clipboard
