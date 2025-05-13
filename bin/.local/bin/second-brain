@@ -15,21 +15,21 @@
 # selected_name="second-brain"
 # selected="~/personal/lirun"
 # selected_name="lirun"
-selected=("/Users/tonystenberg/Library/Mobile Documents/iCloud~md~obsidian/Documents/second-brain")
+selected=("/home/tony/second-brain")
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-	# echo "$selected_name"
-	# echo "$selected"
-	tmux new-session -s "second-brain" -c "$selected"
-	exit 0
+  # echo "$selected_name"
+  # echo "$selected"
+  tmux new-session -s "second-brain" -c "$selected"
+  exit 0
 fi
 
 if ! tmux has-session -t=$selected_name 2>/dev/null; then
-	# echo "$selected_name"
-	# echo "$selected"
-	tmux new-session -ds "second-brain" -c "$selected"
+  # echo "$selected_name"
+  # echo "$selected"
+  tmux new-session -ds "second-brain" -c "$selected"
 
 fi
 
