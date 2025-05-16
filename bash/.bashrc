@@ -10,6 +10,8 @@ export SUDO_EDITOR="$EDITOR"
 #
 # PATH="${PATH:+${PATH}:}"$SCRIPTS"" # appending
 
+export PATH="$PATH:/home/tony/.dotnet"
+
 # Elixir
 export ERL_AFLAGS="-kernel shell_history enabled"
 
@@ -49,3 +51,5 @@ alias sshsrv="servers | fzf | xargs -o ssh"
 eval "$(starship init bash)"
 eval "$(direnv hook bash)"
 # eval "$(/usr/bin/mise activate bash)"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
