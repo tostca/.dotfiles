@@ -8,6 +8,9 @@ required = true
 name = Tony Stenberg
 email = tony.stenberg@hey.com
 
+[includeIf "gitdir:~/work"]
+    path = ~/work/.gitconfig
+
 [color]
 ui = true
 
