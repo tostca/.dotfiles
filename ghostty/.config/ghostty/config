@@ -1,8 +1,8 @@
 # Fonts
 # font-family = JetBrains Mono
-# font-family = Berkeley Mono Regular
+font-family = Berkeley Mono Regular
 # font-family = CaskaydiaMono Nerd Font
-font-family = CaskaydiaCove Nerd Font
+# font-family = CaskaydiaCove Nerd Font
 # font-family-bold = Berkeley Mono Bold
 # font-family-italic = Berkeley Mono Medium Italic
 # font-family-bold-italic = Berkeley Mono Bold Italic
@@ -36,14 +36,14 @@ copy-on-select = clipboard
 shell-integration-features = cursor,sudo,no-title
 
 # Keybinds
-keybind = alt+d=unbind
-keybind = alt+D=unbind
-keybind = ctrl+d=unbind
-keybind = ctrl+D=unbind
-keybind = alt+[=unbind
-keybind = alt+]=unbind
-keybind = ctrl+[=unbind
-keybind = ctrl+]=unbind
+# keybind = alt+d=unbind
+# keybind = alt+D=unbind
+# keybind = ctrl+d=unbind
+# keybind = ctrl+D=unbind
+# keybind = alt+[=unbind
+# keybind = alt+]=unbind
+# keybind = ctrl+[=unbind
+# keybind = ctrl+]=unbind
 
 # cursor
 cursor-style-blink = false
