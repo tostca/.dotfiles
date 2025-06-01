@@ -1,6 +1,38 @@
+-- local mason_registry = require("mason-registry")
+
+local function rebuild_project(co, path)
+  local spinner = require("easy-dotnet.ui-modules.spinner").new()
+  spinner:start_spinner("Building")
+  vim.fn.jobstart(string.format("dotnet build %s", path), {
+    on_exit = function(_, return_code)
+      if return_code == 0 then
+        spinner:stop_spinner("Built successfully")
+      else
+        spinner:stop_spinner("Build failed with exit code " .. return_code, vim.log.levels.ERROR)
+        error("Build failed")
+      end
+      coroutine.resume(co)
+    end,
+  })
+  coroutine.yield()
+end
+
+local rzls_path = vim.fn.expand("$MASON/packages/rzls/libexec")
+local cmd = {
+  "roslyn",
+  "--stdio",
+  "--logLevel=Information",
+  "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
+  "--razorSourceGenerator=" .. vim.fs.joinpath(rzls_path, "Microsoft.CodeAnalysis.Razor.Compiler.dll"),
+  "--razorDesignTimePath=" .. vim.fs.joinpath(rzls_path, "Targets", "Microsoft.NET.Sdk.Razor.DesignTime.targets"),
+  "--extension",
+  vim.fs.joinpath(rzls_path, "RazorExtension", "Microsoft.VisualStudioCode.RazorExtension.dll"),
+}
+
 return {
   {
     "williamboman/mason.nvim",
+    opts = { ensure_installed = { "csharpier", "netcoredbg" } },
     config = function()
       require("mason").setup({
         registries = {
@@ -9,6 +41,10 @@ return {
         },
       })
     end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = { ensure_installed = { "c_sharp" } },
   },
   {
     "seblyng/roslyn.nvim",
@@ -21,9 +57,12 @@ return {
         config = true,
       },
     },
+    opts = {
+      filewatching = "off",
+    },
     config = function()
       -- Use one of the methods in the Integration section to compose the command.
-      local cmd = {}
+      -- local cmd = {}
 
       require("roslyn").setup({
         cmd = cmd,
@@ -60,92 +99,6 @@ return {
       })
     end,
   },
-  -- {
-  --   "seblyng/roslyn.nvim",
-  --   ft = { "cs", "razor" },
-  --   dependencies = {
-  --     {
-  --       -- By loading as a dependencies, we ensure that we are available to set
-  --       -- the handlers for roslyn
-  --       "tris203/rzls.nvim",
-  --       config = function()
-  --         ---@diagnostic disable-next-line: missing-fields
-  --         require("rzls").setup({})
-  --       end,
-  --     },
-  --   },
-  --   config = function()
-  --     require("roslyn").setup({
-  --       args = {
-  --         "--stdio",
-  --         "--logLevel=Information",
-  --         "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
-  --         "--razorSourceGenerator=" .. vim.fs.joinpath(
-  --           vim.fn.stdpath("data") --[[@as string]],
-  --           "mason",
-  --           "packages",
-  --           "roslyn",
-  --           "libexec",
-  --           "Microsoft.CodeAnalysis.Razor.Compiler.dll"
-  --         ),
-  --         "--razorDesignTimePath=" .. vim.fs.joinpath(
-  --           vim.fn.stdpath("data") --[[@as string]],
-  --           "mason",
-  --           "packages",
-  --           "rzls",
-  --           "libexec",
-  --           "Targets",
-  --           "Microsoft.NET.Sdk.Razor.DesignTime.targets"
-  --         ),
-  --       },
-  --       ---@diagnostic disable-next-line: missing-fields
-  --       config = {
-  --         handlers = require("rzls.roslyn_handlers"),
-  --         settings = {
-  --           ["csharp|inlay_hints"] = {
-  --             csharp_enable_inlay_hints_for_implicit_object_creation = true,
-  --             csharp_enable_inlay_hints_for_implicit_variable_types = true,
-  --
-  --             csharp_enable_inlay_hints_for_lambda_parameter_types = true,
-  --             csharp_enable_inlay_hints_for_types = true,
-  --             dotnet_enable_inlay_hints_for_indexer_parameters = true,
-  --             dotnet_enable_inlay_hints_for_literal_parameters = true,
-  --             dotnet_enable_inlay_hints_for_object_creation_parameters = true,
-  --             dotnet_enable_inlay_hints_for_other_parameters = true,
-  --             dotnet_enable_inlay_hints_for_parameters = true,
-  --             dotnet_suppress_inlay_hints_for_parameters_that_differ_only_by_suffix = true,
-  --             dotnet_suppress_inlay_hints_for_parameters_that_match_argument_name = true,
-  --             dotnet_suppress_inlay_hints_for_parameters_that_match_method_intent = true,
-  --           },
-  --           ["csharp|code_lens"] = {
-  --             dotnet_enable_references_code_lens = true,
-  --           },
-  --         },
-  --       },
-  --     })
-  --   end,
-  --   init = function()
-  --     -- we add the razor filetypes before the plugin loads
-  --     vim.filetype.add({
-  --       extension = {
-  --         razor = "razor",
-  --         cshtml = "razor",
-  --       },
-  --     })
-  --     require("trouble").setup({
-  --       modes = {
-  --         diagnostics = {
-  --           filter = function(items)
-  --             return vim.tbl_filter(function(item)
-  --               return not string.match(item.basename, [[%__virtual.cs$]])
-  --             end, items)
-  --           end,
-  --         },
-  --       },
-  --     })
-  --   end,
-  -- },
-  -- lazy.nvim
   {
     "GustavEikaas/easy-dotnet.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
@@ -173,5 +126,170 @@ return {
         },
       })
     end,
+  },
+  {
+    "stevearc/conform.nvim",
+    -- optional = true,
+    opts = {
+      formatters_by_ft = {
+        cs = { "csharpier" },
+      },
+      formatters = {
+        csharpier = {
+          command = "dotnet-csharpier",
+          args = { "--write-stdout" },
+        },
+      },
+    },
+  },
+  -- {
+  --   "mfussenegger/nvim-dap",
+  --   -- optional = true,
+  --   opts = function()
+  --     local dap = require("dap")
+  --     if not dap.adapters["netcoredbg"] then
+  --       require("dap").adapters["netcoredbg"] = {
+  --         type = "executable",
+  --         command = vim.fn.exepath("netcoredbg"),
+  --         args = { "--interpreter=vscode" },
+  --         options = {
+  --           detached = false,
+  --         },
+  --       }
+  --     end
+  --     for _, lang in ipairs({ "cs", "fsharp", "vb" }) do
+  --       if not dap.configurations[lang] then
+  --         dap.configurations[lang] = {
+  --           {
+  --             type = "netcoredbg",
+  --             name = "Launch file",
+  --             request = "launch",
+  --             ---@diagnostic disable-next-line: redundant-parameter
+  --             program = function()
+  --               return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/", "file")
+  --             end,
+  --             cwd = "${workspaceFolder}",
+  --           },
+  --         }
+  --       end
+  --     end
+  --   end,
+  -- },
+  {
+    "mfussenegger/nvim-dap",
+    enabled = true,
+    config = function()
+      local dap = require("dap")
+      local dotnet = require("easy-dotnet")
+      local dapui = require("dapui")
+      dap.set_log_level("TRACE")
+
+      dap.listeners.before.attach.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.launch.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated.dapui_config = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited.dapui_config = function()
+        dapui.close()
+      end
+
+      -- vim.keymap.set("n", "q", function()
+      --   dap.close()
+      --   dapui.close()
+      -- end, {})
+      --
+      -- vim.keymap.set("n", "<F5>", dap.continue, {})
+      -- vim.keymap.set("n", "<F10>", dap.step_over, {})
+      -- vim.keymap.set("n", "<leader>dO", dap.step_over, {})
+      -- vim.keymap.set("n", "<leader>dC", dap.run_to_cursor, {})
+      -- vim.keymap.set("n", "<leader>dr", dap.repl.toggle, {})
+      -- vim.keymap.set("n", "<leader>dj", dap.down, {})
+      -- vim.keymap.set("n", "<leader>dk", dap.up, {})
+      -- vim.keymap.set("n", "<F11>", dap.step_into, {})
+      -- vim.keymap.set("n", "<F12>", dap.step_out, {})
+      -- vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, {})
+      -- vim.keymap.set("n", "<F2>", require("dap.ui.widgets").hover, {})
+
+      local function file_exists(path)
+        local stat = vim.loop.fs_stat(path)
+        return stat and stat.type == "file"
+      end
+
+      local debug_dll = nil
+
+      local function ensure_dll()
+        if debug_dll ~= nil then
+          return debug_dll
+        end
+        local dll = dotnet.get_debug_dll()
+        debug_dll = dll
+        return dll
+      end
+
+      for _, value in ipairs({ "cs", "fsharp" }) do
+        dap.configurations[value] = {
+          {
+            type = "coreclr",
+            name = "Program",
+            request = "launch",
+            env = function()
+              local dll = ensure_dll()
+              local vars = dotnet.get_environment_variables(dll.project_name, dll.absolute_project_path)
+              return vars or nil
+            end,
+            program = function()
+              local dll = ensure_dll()
+              local co = coroutine.running()
+              rebuild_project(co, dll.project_path)
+              if not file_exists(dll.target_path) then
+                error("Project has not been built, path: " .. dll.target_path)
+              end
+              return dll.target_path
+            end,
+            cwd = function()
+              local dll = ensure_dll()
+              return dll.absolute_project_path
+            end,
+          },
+        }
+
+        dap.listeners.before["event_terminated"]["easy-dotnet"] = function()
+          debug_dll = nil
+        end
+
+        dap.adapters.coreclr = {
+          type = "executable",
+          command = "netcoredbg",
+          args = { "--interpreter=vscode" },
+        }
+      end
+    end,
+    dependencies = {
+      { "nvim-neotest/nvim-nio" },
+      {
+        "rcarriga/nvim-dap-ui",
+        config = function()
+          require("dapui").setup()
+        end,
+      },
+    },
+  },
+  {
+    "nvim-neotest/neotest",
+    -- optional = true,
+    dependencies = {
+      "Issafalcon/neotest-dotnet",
+    },
+    opts = {
+      adapters = {
+        ["neotest-dotnet"] = {
+          -- Here we can set options for neotest-dotnet
+        },
+      },
+    },
   },
 }
