@@ -32,6 +32,7 @@ local cmd = {
 return {
   {
     "williamboman/mason.nvim",
+    -- opts = { ensure_installed = { "csharpier", "netcoredbg", "rzls", "roslyn" } },
     opts = { ensure_installed = { "csharpier", "netcoredbg" } },
     config = function()
       require("mason").setup({
@@ -63,31 +64,32 @@ return {
     config = function()
       -- Use one of the methods in the Integration section to compose the command.
       -- local cmd = {}
-
-      require("roslyn").setup({
+      vim.lsp.config("roslyn", {
+        -- require("roslyn").setup({
         cmd = cmd,
         handlers = require("rzls.roslyn_handlers"),
         settings = {
-          -- ["csharp|inlay_hints"] = {
-          --   csharp_enable_inlay_hints_for_implicit_object_creation = true,
-          --   csharp_enable_inlay_hints_for_implicit_variable_types = true,
-          --
-          --   csharp_enable_inlay_hints_for_lambda_parameter_types = true,
-          --   csharp_enable_inlay_hints_for_types = true,
-          --   dotnet_enable_inlay_hints_for_indexer_parameters = true,
-          --   dotnet_enable_inlay_hints_for_literal_parameters = true,
-          --   dotnet_enable_inlay_hints_for_object_creation_parameters = true,
-          --   dotnet_enable_inlay_hints_for_other_parameters = true,
-          --   dotnet_enable_inlay_hints_for_parameters = true,
-          --   dotnet_suppress_inlay_hints_for_parameters_that_differ_only_by_suffix = true,
-          --   dotnet_suppress_inlay_hints_for_parameters_that_match_argument_name = true,
-          --   dotnet_suppress_inlay_hints_for_parameters_that_match_method_intent = true,
-          -- },
+          ["csharp|inlay_hints"] = {
+            csharp_enable_inlay_hints_for_implicit_object_creation = true,
+            csharp_enable_inlay_hints_for_implicit_variable_types = true,
+
+            csharp_enable_inlay_hints_for_lambda_parameter_types = true,
+            csharp_enable_inlay_hints_for_types = true,
+            dotnet_enable_inlay_hints_for_indexer_parameters = true,
+            dotnet_enable_inlay_hints_for_literal_parameters = true,
+            dotnet_enable_inlay_hints_for_object_creation_parameters = true,
+            dotnet_enable_inlay_hints_for_other_parameters = true,
+            dotnet_enable_inlay_hints_for_parameters = true,
+            dotnet_suppress_inlay_hints_for_parameters_that_differ_only_by_suffix = true,
+            dotnet_suppress_inlay_hints_for_parameters_that_match_argument_name = true,
+            dotnet_suppress_inlay_hints_for_parameters_that_match_method_intent = true,
+          },
           ["csharp|code_lens"] = {
             dotnet_enable_references_code_lens = true,
           },
         },
       })
+      vim.lsp.enable("roslyn")
     end,
     init = function()
       -- We add the Razor file types before the plugin loads.
@@ -101,7 +103,8 @@ return {
   },
   {
     "GustavEikaas/easy-dotnet.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+    -- dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+    dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       require("easy-dotnet").setup()
     end,
