@@ -9,8 +9,10 @@ export SUDO_EDITOR="$EDITOR"
 # export SCRIPTS="$DOTFILES/scripts"
 #
 # PATH="${PATH:+${PATH}:}"$SCRIPTS"" # appending
-
 export PATH="$PATH:/home/tony/.dotnet"
+
+# Enable to run Elixir escripts as executables
+export PATH="$PATH:/home/tony/.mix/escripts"
 
 # Elixir
 export ERL_AFLAGS="-kernel shell_history enabled"
