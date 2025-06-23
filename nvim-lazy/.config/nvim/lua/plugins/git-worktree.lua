@@ -1,5 +1,5 @@
 return {
-  {
-    "polarmutex/git-worktree.nvim",
-  },
+  -- {
+  --   "polarmutex/git-worktree.nvim",
+  -- },
 }
