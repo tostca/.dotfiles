@@ -8,15 +8,19 @@ return {
     opts = {
       debug = true,
       provider = "ollama",
-      ollama = {
-        api_key_name = "",
-        endpoint = "http://127.0.0.1:11434",
-        model = "tony-qwen32",
-        options = {
-          num_ctx = 32768,
-          temperature = 0,
+      providers = {
+        ollama = {
+          api_key_name = "",
+          endpoint = "http://127.0.0.1:11434",
+          model = "tony-qwen32",
+          extra_request_body = {
+            options = {
+              num_ctx = 32768,
+              temperature = 0,
+            },
+          },
+          stream = true,
         },
-        stream = true,
       },
       auto_suggestions_provider = "ollama",
       hints = { enabled = true },
