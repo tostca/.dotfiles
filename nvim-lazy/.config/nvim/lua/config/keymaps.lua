@@ -21,10 +21,10 @@ vim.keymap.set("n", "<leader>cy", "<cmd>%!yq -P '.'<CR>", { desc = "Convert JSON
 
 -- Toggle conceallevel with max value of 2
 -- Obsidian plugin works best with 1 or 2
-local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 2
-vim.keymap.set("n", "<leader>uc", function()
-  Util.toggle("conceallevel", false, { 0, conceallevel })
-end, { desc = "Toggle Conceal" })
+-- local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 2
+-- vim.keymap.set("n", "<leader>uc", function()
+--   Util.toggle("conceallevel", false, { 0, conceallevel })
+-- end, { desc = "Toggle Conceal" })
 
 -- Obsidian
 vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<CR>", { desc = "Obsidian find notes by tag" })
