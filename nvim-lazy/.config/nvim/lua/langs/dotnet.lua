@@ -145,39 +145,6 @@ return {
       },
     },
   },
-  -- {
-  --   "mfussenegger/nvim-dap",
-  --   -- optional = true,
-  --   opts = function()
-  --     local dap = require("dap")
-  --     if not dap.adapters["netcoredbg"] then
-  --       require("dap").adapters["netcoredbg"] = {
-  --         type = "executable",
-  --         command = vim.fn.exepath("netcoredbg"),
-  --         args = { "--interpreter=vscode" },
-  --         options = {
-  --           detached = false,
-  --         },
-  --       }
-  --     end
-  --     for _, lang in ipairs({ "cs", "fsharp", "vb" }) do
-  --       if not dap.configurations[lang] then
-  --         dap.configurations[lang] = {
-  --           {
-  --             type = "netcoredbg",
-  --             name = "Launch file",
-  --             request = "launch",
-  --             ---@diagnostic disable-next-line: redundant-parameter
-  --             program = function()
-  --               return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/", "file")
-  --             end,
-  --             cwd = "${workspaceFolder}",
-  --           },
-  --         }
-  --       end
-  --     end
-  --   end,
-  -- },
   {
     "mfussenegger/nvim-dap",
     enabled = true,
@@ -199,23 +166,6 @@ return {
       dap.listeners.before.event_exited.dapui_config = function()
         dapui.close()
       end
-
-      -- vim.keymap.set("n", "q", function()
-      --   dap.close()
-      --   dapui.close()
-      -- end, {})
-      --
-      -- vim.keymap.set("n", "<F5>", dap.continue, {})
-      -- vim.keymap.set("n", "<F10>", dap.step_over, {})
-      -- vim.keymap.set("n", "<leader>dO", dap.step_over, {})
-      -- vim.keymap.set("n", "<leader>dC", dap.run_to_cursor, {})
-      -- vim.keymap.set("n", "<leader>dr", dap.repl.toggle, {})
-      -- vim.keymap.set("n", "<leader>dj", dap.down, {})
-      -- vim.keymap.set("n", "<leader>dk", dap.up, {})
-      -- vim.keymap.set("n", "<F11>", dap.step_into, {})
-      -- vim.keymap.set("n", "<F12>", dap.step_out, {})
-      -- vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, {})
-      -- vim.keymap.set("n", "<F2>", require("dap.ui.widgets").hover, {})
 
       local function file_exists(path)
         local stat = vim.loop.fs_stat(path)
