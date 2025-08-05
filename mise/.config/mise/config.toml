@@ -1,15 +1,16 @@
+[settings]
+idiomatic_version_file_enable_tools = ["ruby"]
+
+[settings.ruby]
+ruby_build_opts = "CC=gcc-14 CXX=g++-14"
+
 [tools]
+go = "latest"
+ruby = "latest"
 deno = "latest"
-"dotnet:GitVersion.Tool" = "latest"
 elixir = "latest"
-erlang = "27"
-go = "1.23"
+erlang = "latest"
 node = "22"
 python = "3.13"
-ruby = "3.4"
 rust = "latest"
 usage = "latest"
-zig = "0.13"
-
-[settings]
-experimental = true
