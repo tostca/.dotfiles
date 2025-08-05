@@ -1,15 +1,22 @@
-source ~/.local/share/omakub/defaults/bash/rc
+# All the default Omarchy aliases and functions
+# (don't mess with these directly, just overwrite them here!)
+source ~/.local/share/omarchy/default/bash/rc
 
-# Editor used by CLI
-export EDITOR="nvim"
-export SUDO_EDITOR="$EDITOR"
-. "$HOME/.cargo/env"
-
-# export DOTFILES="~/.dotfiles"
-# export SCRIPTS="$DOTFILES/scripts"
+# Add your own exports, aliases, and functions here.
 #
+# Make an alias for invoking commands you use constantly
+# alias p='python'
+#
+# Use VSCode instead of neovim as your default editor
+# export EDITOR="code"
+#
+# Set a custom prompt with the directory revealed (alternatively use https://starship.rs)
+# PS1="\W \[\e]0;\w\a\]$PS1"
+
+# . "$HOME/.cargo/env"
+
 # PATH="${PATH:+${PATH}:}"$SCRIPTS"" # appending
-export PATH="$PATH:/home/tony/.dotnet"
+# export PATH="$PATH:/home/tony/.dotnet"
 
 # Enable to run Elixir escripts as executables
 export PATH="$PATH:/home/tony/.mix/escripts"
@@ -17,26 +24,10 @@ export PATH="$PATH:/home/tony/.mix/escripts"
 # Elixir
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-# alias vi=nvim
-#
-# alias ll='ls -la'
-# alias la='ls -lathr'
-# alias ls='eza -lh --group-directories-first --icons'
-# alias lsa='ls -a'
-# alias lt='eza --tree --level=2 --long --icons --git'
-# alias lta='lt -a'
-
-# finds all files recursively and sorts by last modification, ignore hidden files
-alias last='find . -type f -not -path "*/\.*" -exec ls -lrt {} +'
-
-# fzf aliases
 # use fp to do a fzf search and preview the files
 alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 # search for a file with fzf and open it in vim
-alias vf='vi $(fp)'
-
-# Set up fzf key bindings and fuzzy completion
-# eval "$(fzf --bash)"
+alias vf='n $(fp)'
 
 # GPG config
 # export GPG_TTY=$(tty)
@@ -52,6 +43,4 @@ alias sshsrv="servers | fzf | xargs -o ssh"
 
 eval "$(starship init bash)"
 eval "$(direnv hook bash)"
-# eval "$(/usr/bin/mise activate bash)"
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
