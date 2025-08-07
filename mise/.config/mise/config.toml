@@ -6,7 +6,7 @@ ruby_build_opts = "CC=gcc-14 CXX=g++-14"
 
 [tools]
 go = "latest"
-ruby = "latest"
+ruby = "3.4.4"
 deno = "latest"
 elixir = "latest"
 erlang = "latest"
