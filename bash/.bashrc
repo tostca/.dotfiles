@@ -16,7 +16,7 @@ source ~/.local/share/omarchy/default/bash/rc
 # . "$HOME/.cargo/env"
 
 # PATH="${PATH:+${PATH}:}"$SCRIPTS"" # appending
-# export PATH="$PATH:/home/tony/.dotnet"
+export PATH="$PATH:/home/tony/.dotnet"
 
 # Enable to run Elixir escripts as executables
 export PATH="$PATH:/home/tony/.mix/escripts"
