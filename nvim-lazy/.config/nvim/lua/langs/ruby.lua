@@ -6,12 +6,14 @@ return {
         ruby_lsp = {
           mason = false,
           cmd = { vim.fn.expand("/home/tony/.local/share/mise/installs/ruby/3.4.4/bin/ruby-lsp") },
+          -- cmd = { vim.fn.expand("/home/tony/.local/share/mise/installs/ruby/3.4.1/bin/ruby-lsp") },
           -- init_options = {
           --   -- enabledFeatures = enabledFeatures,
           --   -- enableExperimentalFeatures = true,
           -- },
         },
         stimulus_ls = {},
+        -- herb_ls = {},
         -- Sorbet requires `watchmen` to be installed on your system
         -- for macos run `brew install watchman`
         -- for other linux see: https://facebook.github.io/watchman/docs/install#linux
@@ -28,7 +30,7 @@ return {
     },
   },
   -- {
-  --   "williamboman/mason.nvim",
-  --   opts = { ensure_installed = { "erb-formatter", "erb-lint" } },
+  --   "mason-org/mason.nvim",
+  --   opts = { ensure_installed = { "herb-language-server" } },
   -- },
 }

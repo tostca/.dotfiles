@@ -31,7 +31,7 @@ local cmd = {
 
 return {
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     -- opts = { ensure_installed = { "csharpier", "netcoredbg", "rzls", "roslyn" } },
     opts = { ensure_installed = { "csharpier", "netcoredbg" } },
     config = function()
@@ -102,7 +102,9 @@ return {
     end,
   },
   {
-    "GustavEikaas/easy-dotnet.nvim",
+    -- "GustavEikaas/easy-dotnet.nvim",
+    "tostca/easy-dotnet.nvim",
+    branch = "fix-unit-test-loop",
     -- dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
