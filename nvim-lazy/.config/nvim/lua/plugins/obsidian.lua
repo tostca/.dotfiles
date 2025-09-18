@@ -1,5 +1,5 @@
 return {
-  "epwalsh/obsidian.nvim",
+  "obsidian-nvim/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
   lazy = true,
   ft = "markdown",
@@ -20,7 +20,7 @@ return {
     workspaces = {
       {
         name = "second-brain",
-        path = "/home/tony/second-brain",
+        path = "/home/tony/personal/second-brain",
       },
       -- {
       --   name = "work",
@@ -43,29 +43,30 @@ return {
 
     completion = {
       -- Set to false to disable completion.
-      nvim_cmp = true,
+      nvim_cmp = false,
+      blink = true,
 
       -- Trigger completion at 2 chars.
       min_chars = 2,
     },
 
     -- see below for full list of options 👇
-    mappings = {
-      -- Obsidian follow link
-      ["<leader>of"] = {
-        action = function()
-          return require("obsidian").util.gf_passthrough()
-        end,
-        opts = { noremap = false, expr = true, buffer = true, desc = "Obsidian follow link" },
-      },
-      -- Toggle check-boxes "obsidian done
-      ["<leader>oc"] = {
-        action = function()
-          return require("obsidian").util.toggle_checkbox()
-        end,
-        opts = { buffer = true, desc = "Obsidian toggle checkbox done" },
-      },
-    },
+    -- mappings = {
+    --   -- Obsidian follow link
+    --   ["<leader>of"] = {
+    --     action = function()
+    --       return require("obsidian").util.gf_passthrough()
+    --     end,
+    --     opts = { noremap = false, expr = true, buffer = true, desc = "Obsidian follow link" },
+    --   },
+    --   -- Toggle check-boxes "obsidian done
+    --   ["<leader>oc"] = {
+    --     action = function()
+    --       return require("obsidian").util.toggle_checkbox()
+    --     end,
+    --     opts = { buffer = true, desc = "Obsidian toggle checkbox done" },
+    --   },
+    -- },
 
     -- Where to put new notes. Valid options are
     --  * "current_dir" - put new notes in same directory as the current buffer.
@@ -85,6 +86,10 @@ return {
       end
       return out
     end,
+
+    picker = {
+      name = "snacks.pick",
+    },
 
     templates = {
       subdir = "templates",
