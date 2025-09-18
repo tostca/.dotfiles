@@ -27,9 +27,9 @@ vim.keymap.set("n", "<leader>cy", "<cmd>%!yq -P '.'<CR>", { desc = "Convert JSON
 -- end, { desc = "Toggle Conceal" })
 
 -- Obsidian
-vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<CR>", { desc = "Obsidian find notes by tag" })
-vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "Obsidian create new note in inbox" })
-vim.keymap.set("n", "<leader>od", "<cmd>ObsidianToday<CR>", { desc = "Obsidian create new daily zettlekasten" })
+vim.keymap.set("n", "<leader>ot", "<cmd>Obsidian tags<CR>", { desc = "Obsidian find notes by tag" })
+vim.keymap.set("n", "<leader>on", "<cmd>Obsidian new<CR>", { desc = "Obsidian create new note in inbox" })
+vim.keymap.set("n", "<leader>od", "<cmd>Obsidian today<CR>", { desc = "Obsidian create new daily zettlekasten" })
 
 -- Diffing
 vim.keymap.set("n", "<leader>cw", "<cmd>windo diffthis<CR>", { desc = "Start diff for open windows" })
