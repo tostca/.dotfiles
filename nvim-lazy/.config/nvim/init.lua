@@ -1,3 +1,4 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 -- require("snippets.all-snippets")
+vim.lsp.enable("herb_ls")
