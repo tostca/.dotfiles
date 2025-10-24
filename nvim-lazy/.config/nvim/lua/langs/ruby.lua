@@ -5,12 +5,31 @@ return {
       servers = {
         ruby_lsp = {
           mason = false,
-          cmd = { vim.fn.expand("/home/tony/.local/share/mise/installs/ruby/3.4.4/bin/ruby-lsp") },
+          cmd = { vim.fn.expand("/home/tony/.local/share/mise/installs/ruby/3.4.7/bin/ruby-lsp") },
           -- cmd = { vim.fn.expand("/home/tony/.local/share/mise/installs/ruby/3.4.1/bin/ruby-lsp") },
           -- init_options = {
           --   -- enabledFeatures = enabledFeatures,
           --   -- enableExperimentalFeatures = true,
           -- },
+          -- Tell Ruby LSP to use RuboCop via your project's bundle
+          init_options = {
+            formatter = "rubocop",
+            linters = { "rubocop" },
+          },
+
+          settings = {
+            rubyLsp = {
+              formatter = "rubocop",
+              -- diagnostics = { enabled = true },
+              -- completion = { enabled = true },
+              -- codeActions = { enabled = true },
+            },
+
+            -- Explicitly tell it how to invoke Rubocop through Bundler
+            rubocop = {
+              command = { "bundle", "exec", "rubocop", "--lsp" },
+            },
+          },
         },
         stimulus_ls = {},
         -- herb_ls = {},
