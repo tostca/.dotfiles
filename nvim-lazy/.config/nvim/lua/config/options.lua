@@ -5,7 +5,7 @@
 local opt = vim.opt
 opt.guicursor = ""
 opt.scrolloff = 8
-
+opt.showtabline = 0
 -- opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
 
 -- Disable all animations
