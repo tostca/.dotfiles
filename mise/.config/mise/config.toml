@@ -2,7 +2,6 @@
 idiomatic_version_file_enable_tools = ["ruby"]
 
 [settings.ruby]
-ruby_build_opts = "CC=gcc-14 CXX=g++-14"
 
 [tools]
 go = "latest"
@@ -10,7 +9,6 @@ ruby = "3.4.4"
 deno = "latest"
 elixir = "latest"
 erlang = "latest"
-node = "22"
-python = "3.13"
+node = "latest"
 rust = "latest"
 usage = "latest"
