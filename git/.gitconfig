@@ -42,7 +42,7 @@ line-numbers = true
 conflictstyle = diff3
 
 [diff]
-colorMoved = default
+external = difft
 
 [pull]
 rebase = true
