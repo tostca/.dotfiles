@@ -1,3 +1,6 @@
+# If not running interactively, don't do anything (leave this at the top of this file)
+[[ $- != *i* ]] && return
+
 # All the default Omarchy aliases and functions
 # (don't mess with these directly, just overwrite them here!)
 source ~/.local/share/omarchy/default/bash/rc
@@ -18,6 +21,9 @@ source ~/.local/share/omarchy/default/bash/rc
 # PATH="${PATH:+${PATH}:}"$SCRIPTS"" # appending
 export PATH="$PATH:/home/tony/.dotnet"
 
+# dotnet global tools
+export PATH="$PATH:/home/tony/.dotnet/tools"
+
 # Enable to run Elixir escripts as executables
 export PATH="$PATH:/home/tony/.mix/escripts"
 
@@ -34,8 +40,14 @@ alias vf='n $(fp)'
 # gpgconf --launch gpg-agent
 
 # AI tools
-# export ANTHROPIC_API_KEY="$(pass personal/ai/claude/api_token)"
-# export OPENAI_API_KEY=$(pass personal/openai/rapid_ai_agents_api_token)
+# export ANTHROPIC_API_KEY="$(op read "op://Private/Antropic-api /credential" --account EV3DYGRHJNAK7L6RIIR5VI3NKM)"
+# export OPENAI_API_KEY="$(op read "op://Private/OpenAI/neovim_avante_api_key" --account EV3DYGRHJNAK7L6RIIR5VI3NKM)"
+
+# Avante
+# export AVANTE_ANTHROPIC_API_KEY="$(op read "op://Private/Antropic-api /credential" --account EV3DYGRHJNAK7L6RIIR5VI3NKM)"
+# export AVANTE_OPENAI_API_KEY="$(op read "op://Private/OpenAI/neovim_avante_api_key" --account EV3DYGRHJNAK7L6RIIR5VI3NKM)"
+
+# op read "op://Private/OpenAI/neovim_avante_api_key" --account EV3DYGRHJNAK7L6RIIR5VI3NKM
 
 # SSH
 alias servers="cat ~/.ssh/config | grep \"Host \" | cut -d \" \" -f 2 | grep -v -e \"*\" -e \"personalgit\" -e \"workgit\" -e \"github*\" -e \"gitlab*\" | sort"
