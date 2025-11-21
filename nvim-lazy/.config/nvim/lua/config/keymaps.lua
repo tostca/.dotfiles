@@ -42,3 +42,6 @@ vim.keymap.set("n", "<leader>ac", function()
   local state = vim.b.copilot_suggestion_auto_trigger
   vim.notify("Copilot: Auto Trigger " .. (state and "Enabled" or "Disabled"))
 end, { desc = "Copilot toggle suggestion auto trigger" })
+
+-- DBee
+vim.keymap.set("n", "<leader>Dt", "<cmd>Dbee toggle<CR>", { desc = "DBee toggle ui" })
