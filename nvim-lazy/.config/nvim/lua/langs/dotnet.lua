@@ -30,77 +30,77 @@ local cmd = {
 }
 
 return {
-  {
-    "mason-org/mason.nvim",
-    opts = { ensure_installed = { "csharpier", "netcoredbg", "rzls", "roslyn" } },
-    -- opts = { ensure_installed = { "csharpier", "netcoredbg" } },
-    config = function()
-      require("mason").setup({
-        registries = {
-          "github:mason-org/mason-registry",
-          "github:crashdummyy/mason-registry",
-        },
-      })
-    end,
-  },
+  -- {
+  --   "mason-org/mason.nvim",
+  --   opts = { ensure_installed = { "csharpier", "netcoredbg", "rzls", "roslyn" } },
+  --   -- opts = { ensure_installed = { "csharpier", "netcoredbg" } },
+  --   config = function()
+  --     require("mason").setup({
+  --       registries = {
+  --         "github:mason-org/mason-registry",
+  --         "github:crashdummyy/mason-registry",
+  --       },
+  --     })
+  --   end,
+  -- },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = { ensure_installed = { "c_sharp" } },
   },
-  {
-    "seblyng/roslyn.nvim",
-    ft = { "cs", "razor" },
-    dependencies = {
-      {
-        -- By loading as a dependencies, we ensure that we are available to set
-        -- the handlers for Roslyn.
-        "tris203/rzls.nvim",
-        config = true,
-      },
-    },
-    opts = {
-      filewatching = "off",
-    },
-    config = function()
-      -- Use one of the methods in the Integration section to compose the command.
-      -- local cmd = {}
-      vim.lsp.config("roslyn", {
-        -- require("roslyn").setup({
-        cmd = cmd,
-        handlers = require("rzls.roslyn_handlers"),
-        settings = {
-          ["csharp|inlay_hints"] = {
-            csharp_enable_inlay_hints_for_implicit_object_creation = true,
-            csharp_enable_inlay_hints_for_implicit_variable_types = true,
-
-            csharp_enable_inlay_hints_for_lambda_parameter_types = true,
-            csharp_enable_inlay_hints_for_types = true,
-            dotnet_enable_inlay_hints_for_indexer_parameters = true,
-            dotnet_enable_inlay_hints_for_literal_parameters = true,
-            dotnet_enable_inlay_hints_for_object_creation_parameters = true,
-            dotnet_enable_inlay_hints_for_other_parameters = true,
-            dotnet_enable_inlay_hints_for_parameters = true,
-            dotnet_suppress_inlay_hints_for_parameters_that_differ_only_by_suffix = true,
-            dotnet_suppress_inlay_hints_for_parameters_that_match_argument_name = true,
-            dotnet_suppress_inlay_hints_for_parameters_that_match_method_intent = true,
-          },
-          ["csharp|code_lens"] = {
-            dotnet_enable_references_code_lens = true,
-          },
-        },
-      })
-      vim.lsp.enable("roslyn")
-    end,
-    init = function()
-      -- We add the Razor file types before the plugin loads.
-      vim.filetype.add({
-        extension = {
-          razor = "razor",
-          cshtml = "razor",
-        },
-      })
-    end,
-  },
+  -- {
+  --   "seblyng/roslyn.nvim",
+  --   ft = { "cs", "razor" },
+  --   dependencies = {
+  --     {
+  --       -- By loading as a dependencies, we ensure that we are available to set
+  --       -- the handlers for Roslyn.
+  --       "tris203/rzls.nvim",
+  --       config = true,
+  --     },
+  --   },
+  --   opts = {
+  --     filewatching = "off",
+  --   },
+  --   config = function()
+  --     -- Use one of the methods in the Integration section to compose the command.
+  --     -- local cmd = {}
+  --     vim.lsp.config("roslyn", {
+  --       -- require("roslyn").setup({
+  --       cmd = cmd,
+  --       handlers = require("rzls.roslyn_handlers"),
+  --       settings = {
+  --         ["csharp|inlay_hints"] = {
+  --           csharp_enable_inlay_hints_for_implicit_object_creation = true,
+  --           csharp_enable_inlay_hints_for_implicit_variable_types = true,
+  --
+  --           csharp_enable_inlay_hints_for_lambda_parameter_types = true,
+  --           csharp_enable_inlay_hints_for_types = true,
+  --           dotnet_enable_inlay_hints_for_indexer_parameters = true,
+  --           dotnet_enable_inlay_hints_for_literal_parameters = true,
+  --           dotnet_enable_inlay_hints_for_object_creation_parameters = true,
+  --           dotnet_enable_inlay_hints_for_other_parameters = true,
+  --           dotnet_enable_inlay_hints_for_parameters = true,
+  --           dotnet_suppress_inlay_hints_for_parameters_that_differ_only_by_suffix = true,
+  --           dotnet_suppress_inlay_hints_for_parameters_that_match_argument_name = true,
+  --           dotnet_suppress_inlay_hints_for_parameters_that_match_method_intent = true,
+  --         },
+  --         ["csharp|code_lens"] = {
+  --           dotnet_enable_references_code_lens = true,
+  --         },
+  --       },
+  --     })
+  --     vim.lsp.enable("roslyn")
+  --   end,
+  --   init = function()
+  --     -- We add the Razor file types before the plugin loads.
+  --     vim.filetype.add({
+  --       extension = {
+  --         razor = "razor",
+  --         cshtml = "razor",
+  --       },
+  --     })
+  --   end,
+  -- },
   {
     "GustavEikaas/easy-dotnet.nvim",
     -- 'nvim-telescope/telescope.nvim' or 'ibhagwan/fzf-lua' or 'folke/snacks.nvim'
@@ -149,8 +149,8 @@ return {
           },
           mappings = {
             debug_test_from_buffer = { lhs = "<leader>Dr", desc = "run test from buffer" },
-            run_test_from_buffer = { lhs = "<leader>r", desc = "run test from buffer" },
-            peek_stack_trace_from_buffer = { lhs = "<leader>p", desc = "peek stack trace from buffer" },
+            run_test_from_buffer = { lhs = "<leader>Cr", desc = "run test from buffer" },
+            peek_stack_trace_from_buffer = { lhs = "<leader>Cp", desc = "peek stack trace from buffer" },
             filter_failed_tests = { lhs = "<leader>fe", desc = "filter failed tests" },
             debug_test = { lhs = "<leader>d", desc = "debug test" },
             go_to_file = { lhs = "g", desc = "go to file" },
@@ -285,109 +285,80 @@ return {
       },
     },
   },
-  -- {
-  --   "mfussenegger/nvim-dap",
-  --   enabled = true,
-  --   config = function()
-  --     local dap = require("dap")
-  --     local dotnet = require("easy-dotnet")
-  --     local dapui = require("dapui")
-  --     dap.set_log_level("TRACE")
-  --
-  --     dap.listeners.before.attach.dapui_config = function()
-  --       dapui.open()
-  --     end
-  --     dap.listeners.before.launch.dapui_config = function()
-  --       dapui.open()
-  --     end
-  --     dap.listeners.before.event_terminated.dapui_config = function()
-  --       dapui.close()
-  --     end
-  --     dap.listeners.before.event_exited.dapui_config = function()
-  --       dapui.close()
-  --     end
-  --
-  --     local function file_exists(path)
-  --       local stat = vim.loop.fs_stat(path)
-  --       return stat and stat.type == "file"
-  --     end
-  --
-  --     local debug_dll = nil
-  --
-  --     local function ensure_dll()
-  --       if debug_dll ~= nil then
-  --         return debug_dll
-  --       end
-  --       local dll = dotnet.get_debug_dll()
-  --       debug_dll = dll
-  --       return dll
-  --     end
-  --
-  --     for _, value in ipairs({ "cs", "fsharp" }) do
-  --       dap.configurations[value] = {
-  --         {
-  --           type = "coreclr",
-  --           name = "Program",
-  --           request = "launch",
-  --           env = function()
-  --             local dll = ensure_dll()
-  --             local vars = dotnet.get_environment_variables(dll.project_name, dll.absolute_project_path)
-  --             return vars or nil
-  --           end,
-  --           program = function()
-  --             local dll = ensure_dll()
-  --             local co = coroutine.running()
-  --             rebuild_project(co, dll.project_path)
-  --             if not file_exists(dll.target_path) then
-  --               error("Project has not been built, path: " .. dll.target_path)
-  --             end
-  --             return dll.target_path
-  --           end,
-  --           cwd = function()
-  --             local dll = ensure_dll()
-  --             return dll.absolute_project_path
-  --           end,
-  --         },
-  --       }
-  --
-  --       dap.listeners.before["event_terminated"]["easy-dotnet"] = function()
-  --         debug_dll = nil
-  --       end
-  --
-  --       dap.adapters.coreclr = {
-  --         type = "executable",
-  --         command = "netcoredbg",
-  --         args = { "--interpreter=vscode" },
-  --       }
-  --     end
-  --   end,
-  --   dependencies = {
-  --     { "nvim-neotest/nvim-nio" },
-  --     {
-  --       "rcarriga/nvim-dap-ui",
-  --       config = function()
-  --         require("dapui").setup()
-  --       end,
-  --     },
-  --   },
-  -- },
   {
     "mfussenegger/nvim-dap",
+    enabled = true,
     config = function()
-      -- .NET specific setup using `easy-dotnet`
-      require("easy-dotnet.netcoredbg").register_dap_variables_viewer() -- special variables viewer specific for .NET
+      local dap = require("dap")
+
+      -- STUB adapter to satisfy 'coreclr'
+      dap.adapters.coreclr = {
+        type = "executable",
+        command = "dotnet",
+        args = { "--info" },
+      }
+
+      local dotnet = require("easy-dotnet")
+      require("easy-dotnet.netcoredbg").register_dap_variables_viewer()
+
+      local debug_dll = nil
+      local function ensure_dll()
+        if debug_dll ~= nil then
+          return debug_dll
+        end
+        local dll = dotnet.get_debug_dll()
+        debug_dll = dll
+        return dll
+      end
+
+      dap.configurations.cs = {
+        {
+          type = "easy-dotnet",
+          name = "Launch .NET",
+          request = "launch",
+          env = function()
+            local dll = ensure_dll()
+            return dotnet.get_environment_variables(dll.project_name, dll.absolute_project_path)
+          end,
+          program = function()
+            local dll = ensure_dll()
+            return dll.target_path
+          end,
+          cwd = function()
+            return ensure_dll().absolute_project_path
+          end,
+        },
+      }
+
+      dap.listeners.before["event_terminated"]["easy-dotnet"] = function()
+        debug_dll = nil
+      end
     end,
+    dependencies = {
+      { "nvim-neotest/nvim-nio" },
+      {
+        "rcarriga/nvim-dap-ui",
+        config = function()
+          require("dapui").setup()
+        end,
+      },
+    },
   },
+  -- {
+  --   "mfussenegger/nvim-dap",
+  --   config = function()
+  --     -- .NET specific setup using `easy-dotnet`
+  --     require("easy-dotnet.netcoredbg").register_dap_variables_viewer() -- special variables viewer specific for .NET
+  --   end,
+  -- },
   {
     "nvim-neotest/neotest",
-    -- optional = true,
-    dependencies = {
-      "Issafalcon/neotest-dotnet",
-    },
     opts = {
       adapters = {
         ["neotest-dotnet"] = {
-          -- Here we can set options for neotest-dotnet
+          dap = {
+            adapter_name = "easy-dotnet",
+          },
         },
       },
     },
