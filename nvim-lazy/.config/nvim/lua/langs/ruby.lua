@@ -5,7 +5,7 @@ return {
       servers = {
         ruby_lsp = {
           mason = false,
-          cmd = { vim.fn.expand("/home/tony/.local/share/mise/installs/ruby/3.4.7/bin/ruby-lsp") },
+          -- cmd = { vim.fn.expand("/home/tony/.local/share/mise/installs/ruby/3.4.7/bin/ruby-lsp") },
           -- cmd = { vim.fn.expand("/home/tony/.local/share/mise/installs/ruby/3.4.1/bin/ruby-lsp") },
           -- init_options = {
           --   -- enabledFeatures = enabledFeatures,
