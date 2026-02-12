@@ -43,6 +43,9 @@ alias vf='n $(fp)'
 # export ANTHROPIC_API_KEY="$(op read "op://Private/Antropic-api /credential" --account EV3DYGRHJNAK7L6RIIR5VI3NKM)"
 # export OPENAI_API_KEY="$(op read "op://Private/OpenAI/neovim_avante_api_key" --account EV3DYGRHJNAK7L6RIIR5VI3NKM)"
 
+# opencode cli
+export OPENCODE_EXPERIMENTAL_LSP_TOOL=true
+
 # Avante
 # export AVANTE_ANTHROPIC_API_KEY="$(op read "op://Private/Antropic-api /credential" --account EV3DYGRHJNAK7L6RIIR5VI3NKM)"
 # export AVANTE_OPENAI_API_KEY="$(op read "op://Private/OpenAI/neovim_avante_api_key" --account EV3DYGRHJNAK7L6RIIR5VI3NKM)"
@@ -52,6 +55,7 @@ alias vf='n $(fp)'
 # SSH
 alias servers="cat ~/.ssh/config | grep \"Host \" | cut -d \" \" -f 2 | grep -v -e \"*\" -e \"personalgit\" -e \"workgit\" -e \"github*\" -e \"gitlab*\" | sort"
 alias sshsrv="servers | fzf | xargs -o ssh"
+export SSH_AUTH_SOCK=~/.1password/agent.sock
 
 eval "$(starship init bash)"
 eval "$(direnv hook bash)"
