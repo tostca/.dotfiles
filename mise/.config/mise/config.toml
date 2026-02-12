@@ -5,14 +5,14 @@ idiomatic_version_file_enable_tools = ["ruby"]
 
 [tools]
 go = "latest"
-ruby = "3.4.4"
+ruby = "4.0.1"
 deno = "latest"
-elixir = "latest"
-erlang = "latest"
+elixir = "1.19.5-otp-28"
+erlang = "28.3.1"
 node = "latest"
 rust = "latest"
 usage = "latest"
 ast-grep = "latest"
 uv = "latest"
-dotnet = "10"
+dotnet = "8"
 curlie = "latest"
