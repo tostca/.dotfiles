@@ -1,6 +1,7 @@
 return {
   "folke/snacks.nvim",
   opts = {
+    nes = { enabled = false },
     scroll = {
       enabled = false, -- Disable scrolling animations
     },
