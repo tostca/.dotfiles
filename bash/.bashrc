@@ -34,6 +34,9 @@ export OPENCODE_EXPERIMENTAL_LSP_TOOL=true
 # USDOTSH
 export UIDOTSH_TOKEN=$(op read "op://Private/UIDOTSH/UIDOTSH_TOKEN")
 
+# GOOGLE STICH
+export STITCH_TOKEN=$(op read "op://Private/Google stitch/stitch-api-key")
+
 # SSH
 alias servers="cat ~/.ssh/config | grep \"Host \" | cut -d \" \" -f 2 | grep -v -e \"*\" -e \"personalgit\" -e \"workgit\" -e \"github*\" -e \"gitlab*\" | sort"
 alias sshsrv="servers | fzf | xargs -o ssh"
