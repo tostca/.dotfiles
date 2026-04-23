@@ -2,10 +2,11 @@
 idiomatic_version_file_enable_tools = ["ruby"]
 
 [settings.ruby]
+compile = false
 
 [tools]
 go = "latest"
-ruby = "4.0.1"
+ruby = "4.0.2"
 deno = "latest"
 elixir = "1.19.5-otp-28"
 erlang = "28.3.1"
@@ -16,3 +17,5 @@ ast-grep = "latest"
 uv = "latest"
 dotnet = "8"
 curlie = "latest"
+bun = "latest"
+git-lfs = "latest"
