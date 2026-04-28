@@ -37,6 +37,9 @@ export UIDOTSH_TOKEN=$(op read "op://Private/UIDOTSH/UIDOTSH_TOKEN")
 # GOOGLE STICH
 export STITCH_TOKEN=$(op read "op://Private/Google stitch/stitch-api-key")
 
+# Fireworks AI coding agents
+export FIREWORKS_API_KEY=$(op read "op://Private/Fireworks/pi-coding-agent")
+
 # SSH
 alias servers="cat ~/.ssh/config | grep \"Host \" | cut -d \" \" -f 2 | grep -v -e \"*\" -e \"personalgit\" -e \"workgit\" -e \"github*\" -e \"gitlab*\" | sort"
 alias sshsrv="servers | fzf | xargs -o ssh"
