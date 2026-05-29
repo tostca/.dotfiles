@@ -18,6 +18,8 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    -- explicitly disable copilot extra (if enabled by default in your LazyVim version)
+    { import = "lazyvim.plugins.extras.coding.copilot", enabled = false },
     -- import/override with your plugins
     { import = "plugins" },
     { import = "langs" },
