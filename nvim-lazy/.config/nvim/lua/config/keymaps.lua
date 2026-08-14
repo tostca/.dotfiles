@@ -19,6 +19,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<leader>cj", "<cmd>%!yq -o=json '.'<CR>", { desc = "Convert YAML to JSON" })
 vim.keymap.set("n", "<leader>cy", "<cmd>%!yq -P '.'<CR>", { desc = "Convert JSON to YAML" })
 
+-- jq commands
+vim.keymap.set("n", "<leader>cJ", "<cmd>%!tr -d '\n' | jq .<CR>", { desc = "Remove new lines in json file" })
+
 -- Toggle conceallevel with max value of 2
 -- Obsidian plugin works best with 1 or 2
 -- local conceallevel = vim.o.conceallevel > 0 and vim.o.conceallevel or 2
